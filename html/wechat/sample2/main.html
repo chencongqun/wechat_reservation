@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<title>点外卖</title>
+<link rel="stylesheet" type="text/css" href="http://imgcache.life.qq.com/www/misc/styles/wei_shopwaimai_v2.1.9.css?v=1.0.10" />
+<link rel="stylesheet" type="text/css" href="http://imgcache.life.qq.com/www/misc/styles/wei_dialog_v1.2.1.css?v=1.0.1" />
+<style>
+
+    /**
+        解决右边背景总是为灰色的bug
+    */
+    #page_allMenu section article, #pInfo {
+        min-height: 100%;
+    }
+
+</style>
+<script src="http://imgcache.life.qq.com/www/misc/scripts/wei_webapp_v2_common_v1.9.4.js?v=1.0.5"></script>
+<script src="http://imgcache.life.qq.com/www/misc/scripts/wei_dialog_v2.2.3.js?v=1.0.0"></script>
+</head>
+<body id="page_allMenu">
+
+<div class="center pdtop">
+  <nav id='navBar'>
+    <dl>
+      <!--dt>分类</dt-->
+      <dd categoryId="1361762533" class="active"> 月饼礼盒 <span></span> </dd>
+    </dl>
+  </nav>
+  <section id="infoSection">
+    <article>
+      <!--div class="h2">月饼礼盒</div-->
+      <div id="pInfo">
+        <dl dUnitName="盒" dOrderNum="44" dishid="1834451231" dName="忆江南订购价" dTaste="" dDescribe="" dPrice="71" dIsHot="0" dSpecialPrice="0" dIsSpecial="1" shopInfo="">
+          <dt>
+            <h3>忆江南订购价</h3>
+          </dt>
+          <dd> <a href="javascript:void(0)" class="dataIn"> <img src="http://qqfood.tc.qq.com/meishio/16/13ceff68-812b-4bb9-a2f4-ec390437ee7d/0?rnd=1409894550"  alt=""  title="" />
+            </a> </dd>
+          <dd> <em> 71元/盒 </em> </dd>
+          <dd class="dpNum">44人点过</dd>
+          <dd class="btn">
+            <button class="minus"><strong></strong></button>
+            <i>9</i>
+            <button class="add"><strong></strong></button>
+          </dd>
+        </dl>
+      </div>
+    </article>
+  </section>
+  <footer class="footFix" id="bottomInfo"> <a class="mymenu" href="/weixin/1337029146/listDishOrder?qrcode=q13884599648962&ticket=016883145e096dd0db1a5378df3ff8d1&code=016883145e096dd0db1a5378df3ff8d1&back=true#wechat_webview_type=1"><b>我的订单</b></a> <span id="payInfo" class="mymenu"><em id="dishNum">21</em>份<strong>&nbsp;&frasl;&nbsp;</strong><em id="dishTprice">1847</em>元</span>
+    <input type="submit" class="btnstyle1"id="submit" value="我点好了" />
+  </footer>
+</div>
+<script>
+window.shareData = {"appid":"wxf5f814b9aed14c8a","imgUrl":"http:\/\/imgcache.life.qq.com\/www\/misc\/images\/weixin_shop_logo\/1337029146_share_150_150.png","timeLineLink":"http:\/\/life.qq.com\/qr\/t13874434192865#wechat_redirect","tTitle":"\u5173\u6ce8\u53ef\u83b7\u5f97\u300c\u6c5f\u5357\u9910\u996e\u96c6\u56e2\u300d\u5fae\u751f\u6d3b\u4f1a\u5458\u5361","tContent":"\u6c5f\u5357\u9910\u996e\u96c6\u56e2","sendFriendLink":"http:\/\/life.qq.com\/qr\/f13874434195897#wechat_redirect","fTitle":"\u6c5f\u5357\u9910\u996e\u96c6\u56e2","fContent":"\u5173\u6ce8\u53ef\u83b7\u5f97\u300c\u6c5f\u5357\u9910\u996e\u96c6\u56e2\u300d\u5fae\u751f\u6d3b\u4f1a\u5458\u5361","wContent":"#\u5fae\u4fe1\u626b\u63cf\u4e8c\u7ef4\u7801#\u6211\u521a\u5728\u6c5f\u5357\u9910\u996e\u96c6\u56e2\u626b\u63cf\u4e8c\u7ef4\u7801\uff0c\u8f7b\u677e\u83b7\u5f97\u5fae\u751f\u6d3b\u4f1a\u5458\u5361\uff0c\u5f97\u52301337029146\uff0c\u9177\u70ab\u53c8\u597d\u73a9\uff01","wLink":null};
+var ticket = '016883145e096dd0db1a5378df3ff8d1',
+    code = '016883145e096dd0db1a5378df3ff8d1',
+    ticketSource = '',
+    wticket = 'd1136b3a9df9fb7b8255b96e61b94773',
+    qrcode = 'q13884599648962';
+
+    var pageName = pageName ? pageName : '';
+
+
+// 分享
+function shareFriend(appid, imgUrl, sendFriendLink, fContent, fTitle) {
+    WeixinJSBridge.invoke('sendAppMessage',{
+                            "appid":appid,
+                            "img_url":imgUrl,
+                            "img_width":"640",
+                            "img_height":"640",
+                            "link":sendFriendLink,
+                            "desc":fContent,
+                            "title":fTitle
+                            }, function(res) {
+                            _report('send_msg', res.err_msg);
+                            })
+}
+function shareTimeline(imgUrl, timeLineLink, tContent, tTitle) {
+    WeixinJSBridge.invoke('shareTimeline',{
+                            "img_url":imgUrl,
+                            "img_width":"640",
+                            "img_height":"640",
+                            "link":timeLineLink,
+                            "desc": tContent,
+                            "title": tTitle
+                            }, function(res) {
+                            _report('timeline', res.err_msg);
+                            });
+}
+function shareWeibo(wContent, wLink) {
+    WeixinJSBridge.invoke('shareWeibo',{
+                            "content":wContent,
+                            "url":wLink,
+                            }, function(res) {
+                            _report('weibo', res.err_msg);
+                            });
+}
+// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            if (pageName == 'menuFilled') {
+
+                var params = {
+                    'qrcode' : qrcode,
+                    'ticket' : ticket,
+                    'ticketSource' : ticketSource
+                };
+
+                MLoading.show('加载中');
+                setTimeout(function(){MLoading.hide();},3000);
+                _doAjax('/weixin/dish/share', 'POST', params, function(ret){
+                    MLoading.hide();
+                    if (ret['code'] != 0) {
+                        alert(ret['message']);
+                        return;
+                    }
+                    var result = ret['result']['data'];
+
+                    shareFriend(result.appid, result.img_url, result.link, result.desc, result.title);
+                });
+
+            } else {
+                shareFriend(window.shareData.appid, window.shareData.imgUrl, window.shareData.sendFriendLink, window.shareData.fContent, window.shareData.fTitle);
+            }
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            if (pageName == 'menuFilled') {
+
+                var params = {
+                    'qrcode' : qrcode,
+                    'ticket' : ticket,
+                    'ticketSource' : ticketSource
+                };
+
+                MLoading.show('加载中');
+                setTimeout(function(){MLoading.hide();},3000);
+                _doAjax('/weixin/dish/share', 'POST', params, function(ret){
+                    MLoading.hide();
+                    if (ret['code'] != 0) {
+                        alert(ret['message']);
+                        return;
+                    }
+                    var result = ret['result']['data'];
+
+                    shareTimeline(result.img_url, result.link, result.desc, result.title);
+                });
+
+            } else {
+
+                shareTimeline(window.shareData.imgUrl, window.shareData.timeLineLink, window.shareData.tContent, window.shareData.tTitle);
+            }
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function(argv){
+            if (pageName == 'menuFilled') {
+
+                var params = {
+                    'qrcode' : qrcode,
+                    'ticket' : ticket,
+                    'ticketSource' : ticketSource
+                };
+
+                MLoading.show('加载中');
+                setTimeout(function(){MLoading.hide();},3000);
+                _doAjax('/weixin/dish/share', 'POST', params, function(ret){
+                    MLoading.hide();
+                    if (ret['code'] != 0) {
+                        alert(ret['message']);
+                        return;
+                    }
+                    var result = ret['result']['data'];
+
+                    shareWeibo(result.title, result.link);
+                });
+
+            } else {
+
+                shareWeibo(window.shareData.wContent, window.shareData.wLink);
+            }
+        });
+     }, false)
+
+
+     function placeOrder(orderId, cardid) {
+
+        params = {
+            'ticket' : ticket,
+            ticketSource : ticketSource,
+            action : 'placeOrder',
+            orderId : orderId,
+            code : code,
+            qrcode : qrcode
+        };
+
+        MLoading.show('加载中');
+        setTimeout(function(){MLoading.hide();},3000);
+        _doAjax('/weixin/'+cardid+'/showDishOrder', 'POST', params, function(ret) {
+            MLoading.hide();
+            if (ret['code'] == 100) {
+                location.href = location.origin + '/weixin/'+cardid+'/dishWaimaiCardPay?action=payByCard&ticket=' + ticket + '&qrcode=' + qrcode + '&orderId='+orderId+'#wechat_webview_type=1';
+            } else if (ret['code'] != 0) {
+                alert(ret['message']);
+                return;
+            }
+
+            isWeixin5=1;
+            // 微信支付
+            if (isWeixin5) {
+                    var weixinPay = ret.result.weixinPay;
+                    var requestData = {};
+                    requestData.appId = weixinPay.appId; //公众号名称,由商户传入
+                    requestData.timeStamp = weixinPay.timeStamp + ''; //时间戳 这里随意使用了一个值
+                    requestData.nonceStr = weixinPay.nonceStr; //随机串
+                    requestData.package = weixinPay.package; // 扩展字段,由商户传入
+                    requestData.signType = weixinPay.signType; //微信签名方式:sha1
+                    requestData.paySign = weixinPay.paySign; //微信签名
+                    // 下单成功 => 微信支付
+                    WeixinJSBridge.invoke('getBrandWCPayRequest', requestData, function(d){
+                                          // 支付回调
+                                          // alert(d.err_msg);
+                                          if (d.err_msg == 'get_brand_wcpay_request:ok') {
+                                               location.href = location.origin + '/weixin/'+cardid+'/listDishOrder?ticket=' + ticket + '&qrcode=' + qrcode + '&code=' + code + '#wechat_webview_type=1';
+                                            // 支付成功
+                                          } else if(d.err_msg == 'get_brand_wcpay_request:cancel') {
+                                            // 取消支付
+                                          } else {
+                                            // 支付失败
+                                          }
+                                      });
+
+            }
+        });
+     }
+
+</script>
+<script type="text/javascript">
+    var cardid = '1337029146';
+    var back = '';
+    var view_const_dish_SPECIAL_PRICE_YES = '2';
+    var view_const_dish_SPECIAL_PRICE_VIP = '3';
+    var view_const_dish_HOT_YES = '2';
+
+    function setHeight(){
+        var  cHeight;
+        cHeight = document.documentElement.clientHeight - 35;
+        cHeight = cHeight +"px"
+        document.getElementById("navBar").style.height =  cHeight;
+        document.getElementById("infoSection").style.height =  cHeight;
+    }
+    function fixWidth(){
+        var _w = _q("#bottomInfo").offsetWidth,_w2;
+        _w2 = parseInt(_w * .78- 100);
+        _q("#payInfo").style.width = _w2+'px';
+
+    }
+
+    //ajax处理
+    //配合_doAjax方法使用
+    function doSelect(){
+        var dds = _qAll('#navBar dd');
+        var aa=0, bb;
+        var article = _q("#infoSection article");
+        _forEach(dds, function(ele, idx, dds) {
+            dds[idx].onclick = function(){
+                _q('.active').className = null;
+                this.className = "active";
+
+                var div = document.getElementById("pInfo");
+                div.innerHTML = '';
+
+                var params = {'action' : 'getDishList',
+                              'categoryId' : this.getAttribute('categoryId'),
+                              'cardid' : cardid,
+                              'qrcode' : qrcode,
+                              'ticket' : ticket,
+                              'code'   : code
+                            };
+                _doAjax('/weixin/dish/listDelivery', 'GET', params, function(ret) {
+                    if (ret['code'] != 0) {
+                        alert(ret['message']);
+                        return;
+                    }
+                    var dishList = ret['result']['data'];
+                    var categoryId = ret['result']['categoryId'];
+
+                    var str = '';
+                    var rnd = Math.random();
+                    for(key in dishList) {
+                        var dish = dishList[key];
+
+                        /*
+                        if (dish.dIsSpecial == view_const_dish_SPECIAL_PRICE_YES) {
+                            var priceHtml = "<em class='sale'><b>特价</b>"+dish['dSpecialPrice']+"元/"+dish['dUnitName']+"<br/><del>"+dish['dPrice']+"元/"+dish['dUnitName']+"</del></em>";
+                        } else if (dish.dIsSpecial == view_const_dish_SPECIAL_PRICE_VIP) {
+                            var priceHtml = "<em><b class='vip'>会员</b>"+dish['dSpecialPrice']+"元/"+dish['dUnitName']+"<br/><del>"+dish['dPrice']+"元/"+dish['dUnitName']+"</del></em>";
+                        } else {
+                            var priceHtml = "<em>"+dish['dPrice']+"元/"+dish['dUnitName']+"</em>";
+                        }
+
+                        var priceHtml = "<em>"+dish['dPrice']+"元/"+dish['dUnitName']+"</em>";
+
+                        if (dish.dIsHot == view_const_dish_HOT_YES) {
+                            var hotHtml = '<span></span>';
+                        } else {
+                            var hotHtml = '';
+                        }
+                        */
+
+                        var priceHtml = "<em>"+dish['dSellPrice']+"元/"+dish['dUnitName']+"</em>";
+                        var hotHtml = '';
+
+                        if (dish['dOrderNum']) {
+                            var dOrderNumHtml = dish['dOrderNum'] + '人点过';
+                        } else {
+                            var dOrderNumHtml = '';
+                        }
+
+                        var attrList = " dUnitName='"+dish['dUnitName']+"' dOrderNum='"+dish['dOrderNum']+"' dishid='"+dish['dishid']+"' dName='"+dish['dName']+"' dTaste='"+dish['dTaste']+"' dDescribe='"+dish['dDescribe']+"' dPrice='"+dish['dSellPrice']+"' dIsHot='"+dish['dIsHot']+"' dSpecialPrice='"+dish['dSpecialPrice']+"' dIsSpecial='"+dish['dIsSpecial']+"' ";
+                        str += "<dl shopInfo='"+dish['allShopInfo']+"' "+attrList+"'><dt><h3>"+dish['dName']+"</h3></dt><dd><a href='javascript:void(0)' class='dataIn'><img src='" + dish['dPicture'] + "?rnd="+rnd+"' alt='' title='' />"+hotHtml+"</a></dd><dd>"+priceHtml+"</dd><dd class='dpNum'>"+dOrderNumHtml+"</dd><dd class='btn'><button class='minus'><strong></strong></button><i>"+dish['o2uNum']+"</i><button class='add'><strong></strong></button></dd></dl>";
+                    }
+
+                    if (_q('.active').getAttribute('categoryId') == categoryId) {
+                        div.innerHTML = str;
+                        _q('#infoSection').scrollTop = 0;
+                        doSelectBtn();
+                        showPicInfo();
+                        footAddfix();
+                    }
+                 });
+            }
+        });
+    }
+
+
+    //选择菜品按钮样式
+    function doSelectBtn(){
+        var btn = _qAll("article dl .btn");
+        var btnIndex = 0,btnLength = btn.length;
+
+        // countDish();
+        for(btnIndex;btnIndex<btnLength;btnIndex++){
+
+            var countNumText=parseInt(btn[btnIndex].children[1].innerHTML),
+                btnAdd=btn[btnIndex].children[2],
+                btnMin=btn[btnIndex].children[0];
+
+            btnShowHide(countNumText,btn[btnIndex], false);
+
+            var iTimeout,iInterval, originalNum,
+                beforeRemoveDish=false,
+                beforeAddDish=false,
+                needRemoveNotify=false; //是否需要删除提醒
+
+            btnAdd.addEventListener(_movestartEvt,function(){
+
+                var _self = this;
+                originalNum = parseInt(_self.parentNode.children[1].innerHTML, 10);
+                countNumText =  originalNum +1;
+                var shopInfo =_self.parentNode.parentNode.getAttribute('shopInfo');
+
+                if (countNumText == 1) {
+                    if (shopInfo) {
+                        _self.parentNode.children[1].innerHTML = 0;
+                        beforeAddDish = true;
+                        return;
+                    } else {
+                        _self.parentNode.children[1].innerHTML = 1;
+                        btnShowHide(1, _self.parentNode);
+                    }
+                } else {
+                    _self.parentNode.children[1].innerHTML = countNumText;
+                    btnShowHide(countNumText,_self.parentNode);
+                    iTimeout = setTimeout(function(){
+                        // console.log(_self);
+                        iInterval = setInterval(function(){
+                            countNumText++;
+                            _self.parentNode.children[1].innerHTML = countNumText;
+                        },100)
+                    },1000)
+                }
+            })
+
+            btnAdd.addEventListener(_moveendEvt,function(){
+                clearTimeout(iTimeout);
+                clearInterval(iInterval);
+
+                var _self = this;
+                var countNumText =  parseInt(_self.parentNode.children[1].innerHTML, 10);
+                var dishid = _self.parentNode.parentNode.getAttribute('dishid');
+                var shopInfo =_self.parentNode.parentNode.getAttribute('shopInfo');
+
+                if (beforeAddDish) {
+
+                    setTimeout(function(){
+                        MDialog.confirm(
+                            '', shopInfo, null,
+                            '确定', function(){
+
+                                _self.parentNode.children[1].innerHTML = 1;
+                                btnShowHide(1, _self.parentNode);
+                                ajaxDishReset(dishid, 1, function(){}, function() {
+
+                                                _self.parentNode.children[1].innerHTML = originalNum;
+                                                btnShowHide(originalNum, _self.parentNode);
+                                                });
+
+                        }, null,
+                            '取消', function(){
+                            }, null,
+                            null, true, true
+                        );
+                    }, 500);
+
+                    beforeAddDish = false;
+                } else {
+                    ajaxDishReset(dishid, countNumText, function(){}, function() {
+
+                                    _self.parentNode.children[1].innerHTML = originalNum;
+                                    btnShowHide(originalNum, _self.parentNode);
+                                    });
+                }
+
+            })
+
+            btnMin.addEventListener(_movestartEvt,function(){
+
+                var _self = this;
+                originalNum = parseInt(_self.parentNode.children[1].innerHTML, 10);
+                countNumText =  originalNum -1;
+
+
+                if(countNumText <= 0 ){
+                    _self.parentNode.children[1].innerHTML = 1;
+                    beforeRemoveDish = true;
+                    return;
+                }else{
+                    _self.parentNode.children[1].innerHTML = countNumText;
+                    iTimeout = setTimeout(function(){
+
+                        iInterval = setInterval(function(){
+                                countNumText--;
+                                if(countNumText<=0){
+                                    clearInterval(iInterval);
+                                    _self.parentNode.children[1].innerHTML = 1;
+                                    beforeRemoveDish = true;
+                                    return;
+                                } else {
+                                    _self.parentNode.children[1].innerHTML = countNumText;
+                                    btnShowHide(countNumText,_self.parentNode);
+                                }
+                            },100)
+                        },1000)
+                    }
+            })
+
+            btnMin.addEventListener(_moveendEvt,function(){
+                clearTimeout(iTimeout);
+                clearInterval(iInterval);
+
+                var _self = this;
+                var countNumText =  parseInt(_self.parentNode.children[1].innerHTML, 10);
+                var dishid = _self.parentNode.parentNode.getAttribute('dishid');
+                var dName = _self.parentNode.parentNode.getAttribute('dName');
+
+                if (beforeRemoveDish) {
+                    if (needRemoveNotify) {
+                        setTimeout(function(){
+                            MDialog.confirm(
+                                '', '是否删除'+dName+'？', null,
+                                '确定', function(){
+
+                                    _self.parentNode.children[1].innerHTML = 0;
+                                    btnShowHide(0, _self.parentNode);
+                                    ajaxDishRemove(dishid, function(){}, function() {
+
+                                                        _self.parentNode.children[1].innerHTML = originalNum;
+                                                        btnShowHide(originalNum, _self.parentNode);
+                                                });
+                                }, null,
+                                '取消', function(){
+                                    _self.parentNode.children[1].innerHTML = originalNum;
+                                    btnShowHide(originalNum, _self.parentNode);
+                                }, null,
+                                null, true, true
+                            );
+                        }, 500);
+                        beforeRemoveDish = false;
+                    } else {
+                        _self.parentNode.children[1].innerHTML = 0;
+                        btnShowHide(0, _self.parentNode);
+                        ajaxDishRemove(dishid, function(){}, function() {
+
+                                            _self.parentNode.children[1].innerHTML = originalNum;
+                                            btnShowHide(originalNum, _self.parentNode);
+                                    });
+                        beforeRemoveDish = false;
+                    }
+                } else {
+                    ajaxDishReset(dishid, countNumText, function(){}, function() {
+
+                                    _self.parentNode.children[1].innerHTML = originalNum;
+                                    btnShowHide(originalNum, _self.parentNode);
+                                  });
+
+                }
+            }) // btnMin.addEventListener
+        } // for
+
+        function ajaxDishReset(dishid, o2uNum, successCallback, errorCallback) {
+
+            var params = {
+                'dishid' : dishid,
+                'qrcode' : qrcode,
+                'ticket' : ticket,
+                'code'   : code,
+                'o2uNum' : o2uNum
+            };
+
+            _doAjax('/weixin/dish/menu?action=update&type=reset&from=delivery', 'POST', params, function(ret) {
+                    if (ret['code'] != 0) {
+
+                        errorCallback();
+                        alert(ret['message']);
+                        return;
+                    } else {
+                        //设置点菜值
+                        if (ret['result'].data.dishNum && ret['result'].data.dishPrice) { 
+                            _q('#payInfo').innerHTML = '<em id="dishNum">'+ret['result'].data.dishNum+'</em>份<strong>&nbsp;&frasl;&nbsp;</strong><em id="dishTprice">'+ret['result'].data.dishPrice+'</em>元'; 
+                        } else {
+                            _q('#payInfo').innerHTML = '';    
+                        }
+                        //_q('#dishNum').innerHTML = ret['result'].data.dishNum;
+                       // _q('#dishTprice').innerHTML = ret['result'].data.dishPrice;
+                        successCallback();
+                    }
+            });
+        } // ajaxDishReset
+
+        function ajaxDishRemove(dishid, successCallback, errorCallback) {
+
+            var params = {
+                'dishid' : dishid,
+                'qrcode' : qrcode,
+                'ticket' : ticket,
+                'code'   : code,
+            };
+
+            _doAjax('/weixin/dish/menu?action=remove&from=delivery', 'POST', params, function(ret) {
+                if (ret['code'] != 0) {
+
+                    errorCallback();
+                    alert(ret['message']);
+                    return;
+                } else {
+                    if (ret['result'].data.dishNum && ret['result'].data.dishPrice) {
+                        _q('#payInfo').innerHTML = '<em id="dishNum">'+ret['result'].data.dishNum+'</em>份<strong>&nbsp;&frasl;&nbsp;</strong><em id="dishTprice">'+ret['result'].data.dishPrice+'</em>元';
+                    } else {
+                        _q('#payInfo').innerHTML = '';
+                    }
+                    successCallback();
+
+                }
+            });
+        } // ajaxDishRemove
+    } // doSelectBtn
+
+    function btnShowHide(num,btns, isCountDish){
+
+        if (isCountDish !== false) {
+           // countDish();
+        }
+
+        if (num <= 0) {
+            btns.children[0].style.display ="none";
+            btns.children[1].style.display ="none";
+        }else{
+            btns.children[0].style.display ="inline-block";
+            btns.children[1].style.display ="inline-block";
+        };
+    }
+
+    function countDish(){
+
+        var countTotle = 0,countdish;
+        var dishNum = _qAll("#page_allMenu section article dl .btn i");
+        _forEach(dishNum,function(ele,idx,dishNum){
+            countdish = parseInt(ele.innerHTML);
+            if(countdish>0){
+                countTotle++;
+            }
+        });
+
+        if(countTotle != 0){
+            _q("#page_allMenu nav dl dd.active span").innerHTML = countTotle;
+            _q("#page_allMenu nav dl dd.active span").style.display='block';
+        }else{
+            _q("#page_allMenu nav dl dd.active span").style.display='none';
+        }
+    }
+
+    //点击促发弹层事件
+    function showPicInfo(){
+        var links = _qAll(".dataIn"), i=0;
+        for(i;i<links.length;i++){
+            links[i].onclick=function(event){
+
+                event.stopPropagation();
+
+                // dl
+                var parentDl = this.parentNode.parentNode;
+
+                var childImg = this.childNodes[0]
+                if(childImg.nodeType == 3){
+                    childImg = this.childNodes[1];
+                }
+
+                popPic(childImg.src,
+                        parentDl.getAttribute('dname'),
+                        parentDl.getAttribute('dprice') + '元/' + parentDl.getAttribute('dunitName'),
+                        parentDl.getAttribute('dIsSpecial'),
+                        parentDl.getAttribute('dSpecialPrice') + '元/' + parentDl.getAttribute('dunitName'),
+                        parentDl.getAttribute('dorderNum'),
+                        parentDl.getAttribute('dtaste'),
+                        parentDl.getAttribute('ddescribe'),
+                        parentDl.getAttribute('dishot')
+                        );
+            }
+        }
+    }
+    //后台可自行扩展参数
+    //调用自定义弹层
+    function popPic(imgUrl,title,price, isSpecial, specialPrice, people,teast,assess,isHot){
+        var _title = title,
+            _price = price,
+            _people = people,
+            _teast = teast,
+            _assess = assess;
+
+        var hotHtml = '';
+        /*
+        if (isHot == view_const_dish_HOT_YES) {
+            hotHtml = '<b></b>';
+        }
+        */
+        _tmpHtml = "<div class='content'>"+hotHtml+"<img src='"+imgUrl+"' alt='' title=''><h2>"+_title;
+
+        /*
+            if (isSpecial == view_const_dish_SPECIAL_PRICE_YES
+            || isSpecial == view_const_dish_SPECIAL_PRICE_VIP) {
+                _tmpHtml += "<i>"+specialPrice+"</i><del>"+_price+"</del>";
+            } else {
+                _tmpHtml += "<i>"+_price+"</i>";
+            }
+        */
+            _tmpHtml += "<i>"+_price+"</i>";
+
+        if (_people) {
+            _tmpHtml += "<span>"+_people+"人点过</span>";
+        }
+        _tmpHtml += "</h2>";
+
+        if (_teast) {
+            _tmpHtml += "<h3>口味："+_teast+"</h3>";
+        }
+
+        if (_assess) {
+            _tmpHtml += "<p>"+_assess+"</p>";
+        }
+
+        _tmpHtml += '</div>';
+        MDialog.popupCustom(_tmpHtml,true, function(){}, true);
+    }
+
+    /*
+    // 获取各个分类被选中菜品的数量
+    function getDishNumOfCategory() {
+
+        var params = {
+            'qrcode' : qrcode,
+            'ticket' : ticket
+        };
+
+        _doAjax('/weixin/dish/list?action=getDishNumOfCategory', 'POST', params, function(ret) {
+                if (ret['code'] != 0) {
+                    return;
+                }
+
+                for(var i in ret['result']['data']) {
+
+                    var val = ret['result']['data'][i];
+                    if (val > 0) {
+                        _q('[categoryId="'+i+'"] span').innerHTML = val;
+                        _q('[categoryId="'+i+'"] span').style.display='block';
+                    } else {
+                        _q('[categoryId="'+i+'"] span').style.display='none';
+                    }
+                }
+        });
+    }
+    */
+
+    function footAddfix(){
+        var articleHeight = _qAll("#pInfo dl").length;
+
+        try {
+            if(articleHeight > 4){
+                _q(".footAdd").style.position ="relative";
+            }else{
+                _q(".footAdd").style.position ="absolute";
+                _q(".footAdd").style.width="60%";
+            }
+        } catch (ex){}
+    }
+
+    _onPageLoaded(function(){
+        setHeight();
+        footAddfix();
+        doSelect();
+        doSelectBtn();
+        showPicInfo();
+        if(_isIOS){
+            _q("#page_allMenu section article").style.overflowY ="scroll";
+            _q("#page_allMenu section article").style.minHeight ="85%";
+            _q("#page_allMenu section article").style.marginBottom="15px"
+        }
+        fixWidth();
+        /*
+        if(_isIOS){
+            _q("#page_allMenu section article").style.overflowY ="scroll";
+            _q("#page_allMenu section article").style.minHeight ="50%";
+        }
+        */
+
+        //getDishNumOfCategory();
+        //setInterval(function(){
+        //                getDishNumOfCategory();
+        //            }, 5000);
+    })
+    window.addEventListener('orientationchange', function(){
+        setHeight();
+        fixWidth();
+    })
+
+    _q('#submit').onclick = function(){
+        var payInfo = _q('#payInfo').innerHTML;
+        /*
+        var dishNum = _q('#dishNum').innerHTML;
+        var dishPrice = _q('#dishTprice').innerHTML;        
+        if (dishNum == '' || dishPrice =='' || dishNum == 0 || dishPrice == 0) {
+        */
+        if (!payInfo) {
+            if (_q('.mNotice') == null) {
+                MDialog.notice('您还没点外卖哦！', MDialog.BUTTON_STYLE_OFF, 2000);
+            }
+            /*
+            MDialog.alert(
+                '您还没点外卖哦！', null, null,
+                '确定', null, null,
+                null, true, true 
+            );
+            */
+            return false; 
+        }
+        var params = {'action' : 'checkMenu',
+                      'cardid' : cardid,
+                      'qrcode' : qrcode,
+                      'ticket' : ticket,
+                      'code'   : code
+                };
+        _doAjax('/weixin/dish/listDelivery', 'GET', params, function(ret) {
+            if (ret['code'] != 0) {
+                alert(ret['message']);
+                return;
+            }
+            if (ret['result']['data']) {
+                
+                window.location.href='/weixin/dish/order?qrcode='+ qrcode + '&ticket=' + ticket + '&code=' + code + '#wechat_webview_type=1';
+            } else {
+                var btn = _qAll("article dl .btn");
+                var btnIndex = 0,btnLength = btn.length;
+
+                for(btnIndex;btnIndex<btnLength;btnIndex++){
+                    btnShowHide(0,btn[btnIndex], false);
+                }
+
+                _q('#payInfo').innerHTML = '';
+
+                MDialog.notice('您还没点外卖哦！', MDialog.BUTTON_STYLE_OFF, 2000);
+
+                /*
+                MDialog.notice('您还没点外卖哦！', MDialog.BUTTON_STYLE_OFF, 2000);
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+                */
+            }
+        });
+    };
+
+    _onPageLoaded(function(){
+        var showTit1 = _q('#showTit1');
+        var showTit2 = _q('#showTit2');
+        var hideInfor = _q('.hideInfor');
+        var showBtn = _q('#showBtn');
+        var modal = _q('.modal');
+        hideInfor.onclick = modal.onclick = showTit2.onclick = function(){
+            showBtn.style.display = "block";
+            hideInfor.style.display = "none";
+            modal.style.display = "none";
+            showTit2.style.display = "none";
+            // hideInfor.onclick = modal.onclick = null;
+        }
+
+        showTit1.onclick = function(){
+            showBtn.style.display = "none";
+            hideInfor.style.display = "block";
+            showTit2.style.display = "block";
+            modal.style.display = "block";
+        }
+
+    });
+
+</script>
+</body>
+</html>

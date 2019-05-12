@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>微信餐厅管理平台</title>
+<link rel="stylesheet" type="text/css" href="css/public.css?version=1.0" />
+<link rel="stylesheet" type="text/css" href="css/info.css?version=1.0" />
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/order_info.js?version=20141203" charset="gb2312" ></script>
+</head>
+<body onLoad="javascript:init()">
+<div class="main">
+<fieldset class="fieldsetStyle">
+  	<p><label>联系电话: </label><b id="phone"></b></p>
+	<p><label>详细地址: </label><b id="address"></b></p>
+	<p><label>订餐日期: </label><b id="submitDate"></b></p>
+	<p><label>配送时间: </label><b id="deliveryTime">立即配送</b></p>
+	<p><label>订单状态: </label><b id="status">未审核</b></p>
+	<p><label>总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计： </label><b id="totalPrice">&nbsp;元</b></p>
+	
+	<dl style="border-top:1px #dedcdd solid; padding-top: 10px;"></dl>
+	
+	<dl id="orders">
+		<!--<p><label>汨罗香韵</label><b>X2</b><b>464元</b></p>-->
+    </dl>
+	
+	<dl style="border-top:1px #dedcdd solid; padding-top: 10px;"></dl>
+	
+	<p style="margin-top: 10px; padding-left:0px; margin-left:0px;">
+		<input type="button" value="接单" class="btnGn" onClick="javascript: acceptOrder();" />
+		<input type="button" value="拒绝" class="btnGn" onClick="javascript: rejectOrder();" />
+	</p>
+</fieldset>
+</div>
+</body>
+</html>

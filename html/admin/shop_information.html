@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/auto_response.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/shop_information.js?version=1.0" charset="gb2312"></script>
+</head>
+
+<body onLoad="javascript:init(1);">
+<form id="form1" name="form1" action="/admin/systemSetting.php?opt=setSystemInfo" method="POST" enctype="multipart/form-data" target="uploadframe">
+<div class="text-div" id="shop_information">
+	<table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		  <th width="80" style="padding-left:0px;">欢迎词:</th>
+		  <td width="10" class="warning">*</td>
+		  <td><input id="title" name="title" type="text" value="" size="30" maxlength="25">
+			<SPAN class="nowarning" id="spanTitleMsg"></SPAN> </td>
+		</tr>
+		<tr>
+		  <th width="80" style="padding-left:0px;">订餐电话:</th>
+		  <td width="10" class="warning">*</td>
+		  <td><input id="phone" name="phone" type="text" value="" size="30" maxlength="25">
+			<SPAN class="nowarning" id="spanPhoneMsg"></SPAN> </td>
+		</tr>
+		<tr>
+		  <th width="80" style="padding-left:0px;">餐厅封面:</th>
+		  <td width="10" class="warning">&nbsp;</td>
+		  <td>
+			<span class="ui-fileWrap" style="float:left;">
+			<input type="file" name="picture" id="picture" onChange="document.form1.path.value=this.value"/>
+			<input type="text" readonly="" id="path" name="path">
+			<em datalocal="browse">浏览</em>
+			</span>
+			<span class="nowarning" id="spanFileMsg"></span>
+		  </td>
+		</tr>
+	</table>
+	<div id="cover" style="display:none; margin-left:125px; margin-top:10px;" >
+		<img id="coverImg" style="height:140px; width: 300px;">
+	</div>
+</div>
+</form>
+<div align="center" style="margin-top:10px">
+  	<input type="button" value="保存配置" class="btn" onClick="javascript: submit_data(1);" style="width: 80px;"/>
+</div>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>菜品分类</title>
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/page.js?version=1.0"></script>
+<script type="text/javascript" src="js/dishes_category.js?version=1.0"></script>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function init()
+{
+	var page = GetArgsFromHref(window.location.href, "page");
+	if (  page == null )
+		page = 1;
+	page = parseInt(page);
+	get_category_list(page);
+}
+</script>
+</head>
+<body onLoad="javascript:init();">
+<div style="margin-right:20px; margin-left:20px;">
+  <div>
+    <ul class="tools">
+      <li onMouseOver="this.className='btnOver'" onMouseOut="this.className=''"><img src="images/btn_add.gif" onClick="javascript:add_category_page()"></img></li>
+      <li onMouseOver="this.className='btnOver'" onMouseOut="this.className=''"><img src="images/btn_del.gif" onClick="javascript:del_category()"></img></li>
+      <li onMouseOver="this.className='btnOver'" onMouseOut="this.className=''"><img src="images/btn_delall.gif" onClick="javascript:delall_category()"></img></li>
+    </ul>
+  </div>
+  <div>
+    <table class="dataGrid" cellspacing="0">
+      <thead>
+        <tr>
+          <th width="5%"><input type="checkbox" onChange="javascript:selectAll(this);"/></th>
+          <th width="20%">分类名称</th>
+		  <th width="10%">描述</th>
+          <th width="10%">排序</th>
+          <th width="10%">菜品数量</th>
+          <th width="15%">操作</th>
+        </tr>
+      </thead>
+      <tbody id="category_content"></tbody>
+    </table>
+  </div>
+  <div class="pageNav" id="pagebar" align="center"></div>
+</div>
+</body>
+</html>

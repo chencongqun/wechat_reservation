@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript">
+function submit_data()
+{
+	$F("spanErrorMsg").className = "nowarning";
+	$F("spanErrorMsg").innerHTML = "";
+	var txtpath = $F("txtpath").value;
+	var tarpath = $F("tarpath").value;
+	if ( txtpath != "" )
+	{
+		var index = txtpath.lastIndexOf('.');
+		var txtflag = txtpath.substr(index);
+		if ( txtflag != ".txt" )
+		{
+			$F("spanErrorMsg").className = "warning";
+			$F("spanErrorMsg").innerHTML = "菜品信息文件格式错误";
+			return;
+		}
+	}
+	if ( tarpath != "" )
+	{
+		var index = tarpath.lastIndexOf('.');
+		var tarflag = tarpath.substr(index);
+		if ( tarflag != ".zip" )
+		{
+			$F("spanErrorMsg").className = "warning";
+			$F("spanErrorMsg").innerHTML = "图片压缩包格式错误";
+			return;
+		}
+	}
+	$F("form1").action = "/admin/dishes.php?opt=import";
+	$F("form1").submit();
+}
+
+function iframeOnload()
+{
+	try
+	{
+		var result = $F('uploadframe').contentWindow.document.body.innerText;
+		if ( result == null || result=="" )
+			return;
+		jsonObj = eval("("+result+")");
+		if ( jsonObj.code == 0 )
+		{
+			if ( currentPage != null )
+				window.location.href = "/admin/dishes_list.html?page=" + currentPage;
+			else
+				window.location.href = "/admin/dishes_list.html";
+		}
+		else if ( jsonObj.code = -102 )
+		{
+				$F("spanErrorMsg").className = "warning";
+				$F("spanErrorMsg").innerHTML = "上传失败";
+		}
+	}
+	catch(e)
+	{
+		window.location.reload();
+	}
+}
+
+</script>
+</head>
+<body>
+<form id="form1" name="form1" action="/admin/dishes.php" method="POST" enctype="multipart/form-data" target="uploadframe">
+<input id="id" name="id" value="" style="display:none">
+<div>
+  <fieldset class="searchArea">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+	<tr>
+		  <th width="100">菜品信息文件:</th>
+		  <td width="10">&nbsp;</td>
+		  <td>
+		  	<span class="ui-fileWrap" style="float:left;">
+			<input type="file" name="dishTxt" id="dishTxt" onChange="document.form1.txtpath.value=this.value"/>
+			<input type="text" readonly="" id="txtpath" name="txtpath">
+			<em datalocal="browse">浏览</em>
+			</span>
+		  </td>
+	</tr>
+	<tr>
+		  <th width="100">图片压缩包:</th>
+		  <td width="10">&nbsp;</td>
+		  <td>
+		  	<span class="ui-fileWrap" style="float:left;">
+			<input type="file" name="pictureTar" id="pictureTar" onChange="document.form1.tarpath.value=this.value"/>
+			<input type="text" readonly="" id="tarpath" name="tarpath">
+			<em datalocal="browse">浏览</em>
+			</span>
+		  </td>
+	</tr>
+	<tr>
+      <th width="50">&nbsp;</th>
+      <td width="10">&nbsp;</td>
+      <td><SPAN class="nowarning" id="spanErrorMsg"></SPAN></td>
+    </tr>
+  </table>
+  <p>1、菜品列表文件格式必须为txt，建议先使用菜品列表里的“导出备份”下载一个菜品列表的txt文件，再在该文件的基础上添加，以免出现格式错误等问题</p>
+  <p>2、菜品的相关图片打包压缩成zip格式的压缩包，图片名称最好都改成英文</p>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />
+  </div>
+</div>
+</form>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/auto_response.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/auto_response.js?version=1.0"></script>
+</head>
+
+<body onLoad="javascript:init();">
+<form id="form1" name="form1" action="/admin/systemSetting.php?opt=setAutoResponse" method="POST" enctype="multipart/form-data" target="uploadframe">
+<fieldset class="searchArea">
+  <legend align="center">关键词回复设置</legend>
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="80">规则名称:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="name" name="name" type="text" value="" size="30" maxlength="25">
+        <SPAN class="nowarning" id="spanNameMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="80">关键词:</th>
+      <td width="10" class="warning">&nbsp;</td>
+      <td><input id="keyword" name="keyword" type="text" value="" size="30" maxlength="25">
+        <SPAN class="nowarning" id="spanKeywordMsg">（多个关键词,以分号";"分割,不填则默认回复所有信息）</SPAN> </td>
+    </tr>
+    <tr>
+      <th width="80">回复内容:</th>
+      <td width="10" class="warning">*</td>
+      <td><select id="type" name="type" onChange="javascript:changeType();"><option value="text">文本</option><option value="media">图片</option></select>
+        <SPAN class="nowarning" id="spanTypeMsg"></SPAN>
+	  </td>
+	</tr>
+  </table>
+</fieldset>
+
+<div class="text-div" id="response_text">
+  <h2>回复内容</h2>
+  <span>仅限600个字</span>
+  <textarea clos="300" rows="8" id="textContent" name="textContent" class="content"></textarea>
+</div>
+
+<div class="text-div" id="response_media" style="display:none">
+	<table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		  <th width="80" style="padding-left:0px;">标题:</th>
+		  <td width="10" class="warning">*</td>
+		  <td><input id="mediaTitle" name="mediaTitle" type="text" value="" size="30" maxlength="25">
+			<SPAN class="nowarning" id="spanTitleMsg"></SPAN> </td>
+		</tr>
+		<tr>
+		  <th width="80" style="padding-left:0px;">封面:</th>
+		  <td width="10" class="warning">*</td>
+		  <td>
+		  	<!--<input id="picture" name="picture" type="file" onChange="document.form1.path.value=this.value" style="display:none" >
+			<input id="path" name="path" type="text" value="" size="30" maxlength="25" disabled="disabled">
+			<input type="button" value="浏览" class="btn" onClick="document.form1.picture.click()" style="padding: 1px;height: 24px;width: 40px;"/>
+			<SPAN class="nowarning" id="spanFileMsg"></SPAN>-->
+			<span class="ui-fileWrap" style="float:left;">
+			<input type="file" name="picture" id="picture" onChange="document.form1.path.value=this.value"/>
+			<input type="text" readonly="" id="path" name="path">
+			<em datalocal="browse">浏览</em>
+			</span>
+		  </td>
+		</tr>
+		<tr id="cover" style="display:none">
+		  <th width="80" style="padding-left:0px;">&nbsp;</th>
+		  <td width="10" class="warning">&nbsp;</td>
+		  <td>
+		  	<img id="coverImg" style="height:40px; width: 40px;">
+		  </td>
+		</tr>
+		<tr>
+		  <th width="80" style="padding-left:0px;">点击后显示:</th>
+		  <td width="10" class="warning">&nbsp;</td>
+		  <td>&nbsp;</td>
+		</tr>
+	</table>
+	<textarea clos="300" rows="8" id="mediaContent" name="mediaContent" class="content"></textarea>
+</div>
+</form>
+<div align="center" style="margin-top:10px">
+  	<input type="button" value="保存配置" class="btn" onClick="javascript: submit_data();" style="width: 80px;"/>
+</div>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

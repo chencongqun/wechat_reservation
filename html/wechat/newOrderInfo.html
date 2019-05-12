@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>新订单提醒</title>
+<link rel="stylesheet" type="text/css" href="css/allorders.css?version=1.0" />
+<link rel="stylesheet" type="text/css" href="css/public.css?version=1.0" />
+<script type="text/javascript" src="js/public.js?version=1.4"></script>
+<script type="text/javascript" src="js/newOrderInfo.js?version=201412031257" charset="gb2312" ></script>
+
+<style type="text/css">
+#msgList {width:100%;height:auto; background-color:#FFFFFF; display:none;}
+#msgList ul{margin:0;padding:0; list-style:none;}
+#msgList li{width:100%;height:auto; line-height:30px; border-bottom:1px dashed #ccc; color:#666; cursor:pointer;}
+</style>
+
+</head>
+<body id="myOrder" onLoad="javascript:init()">
+
+<div id="orderInfo">
+  <dl class="myOrderDl" style="border:0">
+    <dd class="orderMenu">
+      <p>
+        <label>联系电话：</label>
+        <span id="phone">&nbsp;</span> </p>
+      <p class="box">
+        <label>详细地址：</label>
+        <span id="address">&nbsp;</span> </p>
+      <p class="box">
+        <label>订餐日期：</label>
+        <span id="submitDate">2014-10-13</span> </p>
+      <p class="box">
+        <label>配送时间：</label>
+        <span id="deliveryTime">立即配送</span> </p>
+      <p class="box">
+        <label>订单状态：</label>
+        <span id="status">未处理</span> </p>
+      <p class="zongjia">
+        <label>总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计：</label>
+        <span id="totalPrice">&nbsp;</span>&nbsp;元 </p>
+      <dl id="orders"></dl>
+      <dl style="border-top:1px #dedcdd solid; padding-top: 10px; margin-left: 5px; margin-right: 5px;">
+      </dl>
+      <p style="margin-top: 10px; padding-left:0px; margin-left:0px;">
+        <input id="accept_btn" type="button" value="接单" class="btn" onClick="javascript: acceptOrder();" />
+        <input id="reject_btn" type="button" value="拒绝" class="btn" onClick="javascript: rejectOrder();" />
+      </p>
+    </dd>
+  </dl>
+</div>
+
+<div id="rejectMsg" style="margin-left:20px; margin-right:20px; margin-top:20px; display:none;">
+  <span>拒绝原因:</span>
+  <textarea style="border:1px solid #D5D5D5; min-height:60px; line-height:20px; font-size:15px; width:100%; " id="rejectText" onfocus="showAndHide(1);" onblur="showAndHide(2);"></textarea>
+  <div id="msgList">
+    <ul>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onmousedown="javascript:selectMsg('msg1')" id="msg1">您的联系方式不准确，暂时无法配送！给您带来不便，望您谅解！</li>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onmousedown="javascript:selectMsg('msg2')" id="msg2">您的地址不在配送范围内，暂时无法配送！给您带来不便，望您谅解！</li>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onmousedown="javascript:selectMsg('msg3')" id="msg3">您所选的菜品已经销售完，请选择其它菜品重新下单！给您带来不便，望您谅解！</li>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onmousedown="javascript:selectMsg('msg4')" id="msg4">该时段暂时无法配送，请您在餐厅的正常营业时间内下单！给您带来不便，望您谅解！</li>
+    </ul>
+  </div>
+  <input type="button" value="确定" class="btn" onClick="javascript: rejectOrderConfirm();" />
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新增分类</title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/dishes_add.js?v=20141212" charset="gb2312"></script>
+</head>
+<body onLoad="javascript:init();">
+<form id="form1" name="form1" action="/admin/dishes.php" method="POST" enctype="multipart/form-data" target="uploadframe">
+<input id="id" name="id" value="" style="display:none">
+<input id="hotsalevalue" name="hotsalevalue" style="display:none" value="">
+<div>
+  <fieldset class="searchArea">
+  <legend align="center">新增分类</legend>
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="50">名称:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="name" name="name" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanNameMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="50">描述:</th>
+      <td width="10" >&nbsp;</td>
+      <td><input id="desc" name="desc" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanDescMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="50">价格:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="price" name="price" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanPriceMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="50">排序:</th>
+      <td width="10">&nbsp;</td>
+      <td><input id="priority" name="priority" type="text" value="" size="30" maxlength="25" style="width:100px">
+        <SPAN class="nowarning" id="spanPriorityMsg">（值越小在用户端菜单列表中的显示位置越靠前）</SPAN></td>
+    </tr>
+	<tr>
+      <th width="50">单位:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="unit" name="unit" type="text" value="" size="30" maxlength="25" style="width:100px">
+        <SPAN class="nowarning" id="spanUnitMsg">（份、例、斤、半斤、个等）</SPAN></td>
+    </tr>
+	<tr>
+      <th width="50">类别:</th>
+      <td width="10">&nbsp;</td>
+      <td><select id="class_select" name="class_select" ><option value="">&nbsp;&nbsp;&nbsp;&nbsp;</option></select>
+        <SPAN class="nowarning" id="spanClassMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="50">热卖:</th>
+      <td width="10">&nbsp;</td>
+      <td><input id="hotsale" name="hotsale" type="checkbox" style="width:20px; height:18px; border:0px; margin-left: 0px;">
+	  <SPAN class="nowarning" id="spanHotSale">(启用之后，该菜品会有热卖标志)</SPAN></td>
+    </tr>
+	<tr>
+		  <th width="50">图片:</th>
+		  <td width="10">&nbsp;</td>
+		  <td>
+		  	<span class="ui-fileWrap" style="float:left;">
+			<input type="file" name="picture" id="picture" onChange="document.form1.path.value=this.value"/>
+			<input type="text" readonly="" id="path" name="path">
+			<em datalocal="browse">浏览</em>
+			</span>
+		  </td>
+	</tr>
+	<tr>
+      <th width="50">&nbsp;</th>
+      <td width="10">&nbsp;</td>
+      <td><SPAN class="nowarning" id="spanErrorMsg"></SPAN></td>
+    </tr>
+  </table>
+  <div id="cover" style="display:none; margin-left:110px; margin-top:0px;" >
+		<img id="coverImg" style="height:150px; width: 150px;">
+  </div>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />&nbsp;
+	<input type="button" value="重置" class="btn" onClick="javascript: reset_data();" />
+  </div>
+</div>
+</form>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

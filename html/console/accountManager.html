@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript" src="js/public.js?version=1.0" charset="gb2312"></script>
+<script type="text/javascript" src="js/page.js?version=1.0" charset="gb2312"></script>
+<script type="text/javascript" src="js/accountManager.js?version=1.0" charset="gb2312"></script>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+</head>
+<body onLoad="javascript:init();">
+<div style="margin-left:20px; margin-right:20px">
+  <fieldset class="searchArea2">
+  <legend align="center">条件过滤</legend>
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="80">商户名称:</th>
+      <td><input id="nameSearch" type="text" value="" size="30" maxlength="25" style="width:200px"></td>
+	  <th width="80">详细地址:</th>
+      <td><input id="addrSearch" type="text" value="" size="30" maxlength="25" style="width:200px"></td>
+    </tr>
+	<tr>
+      <th width="80">类型:</th>
+      <td><select id="accountTypeSearch" >
+		<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+		<option value="0">试用用户</option>
+		<option value="1">正式用户</option>
+		</select></td>
+    </tr>
+  </table>
+  <input type="button" value="查询" class="btnSh" onClick="javascript: searchFunc();" width="40px;"/>
+  </fieldset>
+  <div>
+    <ul class="tools">
+      <li onMouseOver="this.className='btnOver'" onMouseOut="this.className=''"><img src="images/btn_add.gif" onClick="javascript:add_page()"></img></li>
+      <!--<li onMouseOver="this.className='btnOver'" onMouseOut="this.className=''"><img src="images/btn_del.gif" onClick="javascript:del_dishes()"></img></li>
+      <li onMouseOver="this.className='btnOver'" onMouseOut="this.className=''"><img src="images/btn_delall.gif" onClick="javascript:delall_dishes()"></img></li>-->
+    </ul>
+  </div>
+  <div>
+    <table class="dataGrid" cellspacing="0">
+      <thead>
+        <tr>
+          <th width="5%"><input type="checkbox" onChange="javascript:selectAll(this);"/></th>
+          <th width="20%">商户名称</th>
+		  <th width="10%">账号</th>
+		  <th width="10%">类型</th>
+		  <th width="10%">区域</th>
+		  <th width="10%">剩余短信数</th>
+		  <th width="10%">许可有效期</th>
+          <th width="15%">操作</th>
+        </tr>
+      </thead>
+      <tbody id="content"></tbody>
+    </table>
+  </div>
+  <div class="pageNav" id="pagebar" align="center"></div>
+</div>
+</body>
+</html>

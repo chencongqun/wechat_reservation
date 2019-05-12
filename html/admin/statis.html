@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>统计数据</title>
+<script type="text/javascript" src="js/public.js?version=1.0" charset="gb2312"></script>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<style type="text/css">
+.searchArea2 {
+	border:1px solid #ccc;
+	padding:10px 10px;
+	font-size: 13px;
+	font-weight: bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color: #818181;
+	margin-bottom:10px;
+	margin-left:20px;
+	margin-right:20px;
+}
+</style>
+<script type="text/javascript">
+var curYear;
+var curMonth;
+var curDay;
+var selectMonth;
+var selectYear;
+
+var pxPerNum = 0;
+function lineDash(cxt, y)
+{
+	cxt.moveTo(20,y);
+	for( var i= 20; i<=600; i+=10 )
+	{
+		cxt.lineTo(i,y);
+		i+=10;
+		cxt.moveTo(i,y);
+	}
+}
+function drawDate(cxt, year, month)
+{
+	var percent = "(日期)";  
+	cxt.fillText(percent, 660, 320); 
+	var date = year + "-" + month + "-1";
+	cxt.fillText(date, 20, 340);
+	
+	for ( var i=5; i<=31; i+=5 )
+	{
+	
+		date = year + "-" + month + "-" + i;
+		cxt.fillText(date, i*20, 340);
+		cxt.moveTo(i*20+10,320);
+		cxt.lineTo(i*20+10,310);
+	}
+	
+	cxt.stroke();
+}
+function drawPercent(cxt, maxPercent)
+{
+	var percent = "(订单数)";  
+	cxt.fillText(percent, 1, 10); 
+	var unitPercent = Math.ceil(maxPercent/3);
+	pxPerNum = 100 / unitPercent;
+	var percent = unitPercent * 3;  
+	cxt.fillText(percent, 1, 30); 
+	var percent = unitPercent * 2;  
+	cxt.fillText(percent, 1, 130); 
+	var percent = unitPercent * 1;  
+	cxt.fillText(percent, 1, 230); 
+	var percent = "0";  
+	cxt.fillText(percent, 1, 320);
+}
+function initCanvas(month, maxPercent)
+{
+	if ( maxPercent < 3 )
+		maxPercent = 3;
+	var year = curYear;
+	if ( month > curMonth )
+		year -= 1;
+	var c=document.getElementById("myCanvas");
+	var cxt=c.getContext("2d");
+	cxt.moveTo(30,320);
+	cxt.lineTo(630,320);
+	cxt.moveTo(30,320);
+	cxt.lineTo(30,20);
+	cxt.strokeStyle="red";
+	cxt.lineWidth="2";
+	cxt.stroke();
+	cxt.lineWidth="1";
+	lineDash(cxt, 20);
+	lineDash(cxt, 120);
+	lineDash(cxt, 220);
+	cxt.stroke();
+	
+	cxt.font = 'bold 12px 微软雅黑';  
+	cxt.fillStyle = "red";  
+	
+	drawPercent(cxt, maxPercent);
+	drawDate(cxt, year, month);
+}
+
+function fillCanvas(detailData,dayNum)
+{
+	var c=document.getElementById("myCanvas");
+	var cxt=c.getContext("2d");
+	var lastX = 30;
+	var lastY = 320 - detailData[1]["num"] * pxPerNum;
+	
+	cxt.beginPath();
+	cxt.arc(lastX,lastY,3,0,Math.PI*2,true);
+	cxt.closePath();
+	cxt.fill();
+
+	for ( var i = 2; i<=dayNum; i++ )
+	{
+		var curX = 10 + 20 * i;
+		var curY = 320 - detailData[i]["num"] * pxPerNum;
+		
+		cxt.moveTo(lastX,lastY);
+		cxt.lineTo(curX,curY);
+		cxt.stroke();
+		cxt.beginPath();
+		cxt.arc(curX,curY,3,0,Math.PI*2,true);
+		cxt.closePath();
+		cxt.fill();
+		
+		lastX = curX;
+		lastY = curY;
+	}
+	
+}
+
+function initOptions()
+{
+	var curDate = new Date();
+	curYear= curDate.getFullYear();
+	curMonth = curDate.getMonth() + 1;
+	curDay = curDate.getDate();
+	var selectObj = $F("monthSearch");
+	for( var i = curMonth; i>0; i-- )
+	{
+		var newOption=document.createElement("option"); 
+		newOption.innerHTML = curYear + "年"+i+"月";
+		newOption.value = i;
+		selectObj.appendChild(newOption);
+	}
+	var lastYear = curYear -1;
+	for( var i = curMonth + 1; i<=12; i++ )
+	{
+		var newOption=document.createElement("option"); 
+		newOption.innerHTML = lastYear + "年"+i+"月";
+		newOption.value = i;
+		selectObj.appendChild(newOption);
+	}
+	selectMonth = curMonth;
+	selectYear = curYear;
+}
+
+function fillData(result)
+{
+	var data = result["data"];
+	var length = data.length;
+	var dayNum = 31;
+	if ( selectMonth == curMonth )
+		dayNum = curDay;
+	var detailData = new Array();
+	var monthTotalNum = 0;
+	var monthTotalPrice = 0;
+	var maxOrderNum = 0;
+	for ( var i = 1; i<=dayNum; i++ )
+	{
+		var startTime = new Date(selectYear + '-' + selectMonth + '-' + i + ' 00:00:00').getTime();
+		startTime = startTime / 1000;
+		var endTime = new Date(selectYear + '-' + selectMonth + '-' + i + ' 23:59:59').getTime();
+		endTime = endTime / 1000;
+		detailData[i] = new Array();
+		detailData[i]["num"] = 0;
+		detailData[i]["price"] = 0;
+		detailData[i]["total"] = monthTotalPrice;
+		for ( var j=0; j<length; j++ )
+		{
+			if ( parseInt(data[j]["time"]) <= endTime && parseInt(data[j]["time"]) >= startTime && parseInt(data[j]["status"]) == 1 )
+			{
+				detailData[i]["num"] ++;
+				detailData[i]["price"] += parseInt(data[j]["totalPrice"]);
+				detailData[i]["total"] += parseInt(data[j]["totalPrice"]);
+			}
+		}
+		monthTotalPrice = detailData[i]["total"];
+		monthTotalNum += detailData[i]["num"];
+		if ( maxOrderNum < detailData[i]["num"] )
+			maxOrderNum = detailData[i]["num"];
+	}	
+	$F("totalNum").innerHTML = result["totalCount"];
+	$F("totalPrice").innerHTML = result["totalPrice"] + "元";
+	$F("monthNum").innerHTML = monthTotalNum;
+	$F("monthPrice").innerHTML = monthTotalPrice + "元";
+	
+	initCanvas(selectMonth, maxOrderNum);
+	fillCanvas(detailData,dayNum);
+	
+	var targetObj = $F('content');
+	var rowId = 0;
+	for ( var i = dayNum; i>=1; i-- )
+	{
+		try
+		{
+			var newRow = targetObj.insertRow(rowId);
+			newRow.onmouseover = function(){this.style.background='#FBF5E5';};
+			newRow.onmouseout =  function(){this.style.background='';};
+			var newCell = newRow.insertCell(0);
+			newCell.innerHTML = '<input type="checkbox" id="select' + i + '">';
+			newCell = newRow.insertCell(1);
+			newCell.innerHTML = selectYear + "-" + selectMonth + "-" + i;
+			newCell = newRow.insertCell(2);
+			newCell.innerHTML = detailData[i]["num"];
+			newCell = newRow.insertCell(3);
+			newCell.innerHTML = detailData[i]["price"];
+			newCell = newRow.insertCell(4);
+			newCell.innerHTML = detailData[i]["total"];
+			rowId++;
+		}
+		catch(e){}
+	}
+}
+
+function getOrderData()
+{
+	var url = "/admin/customerOrder.php?opt=getOrderStatiInfo&month=" + selectMonth + "&time=" + new Date().getTime();
+	getJson( url, fillData );
+}
+
+function searchOrders()
+{
+	var url = "/admin/statis.html?month=" + $F("monthSearch").value;
+	window.location.href = url;
+}
+
+function init()
+{
+	initOptions();
+	selectMonth = GetArgsFromHref(window.location.href, "month");
+	if ( selectMonth == null )
+		selectMonth = curMonth;
+	else
+	{
+		selectMonth = parseInt(selectMonth);
+		if ( selectMonth > curMonth )
+			selectYear = curYear - 1;
+	}
+	$F("monthSearch").value = selectMonth;
+	getOrderData();
+}
+
+</script>
+</head>
+<body onLoad="javascript:init()">
+<fieldset class="searchArea2">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="80">查询月份:</th>
+      <td width="150"><select id="monthSearch" >
+        </select>
+      </td>
+      <td><input type="button" value="查询" class="btnGn" onClick="javascript:searchOrders()" style=" width:60px; height:30px;"/>
+      </td>
+    </tr>
+  </table>
+  <div style="border-top:1px solid #C0C0C0; margin-top:20px;"></div>
+  <div style="margin-top:20px; padding-top:0px; padding-left:5px; border-left:5px solid #C0C0C0;margin-bottom:10px;">合计</div>
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="80">总订单数:</th>
+      <td id="totalNum">0</td>
+      <th width="80">总销售额:</th>
+      <td id="totalPrice">0元</td>
+    </tr>
+    <tr>
+      <th width="80">本月订单数:</th>
+      <td id="monthNum">0</td>
+      <th width="80">本月销售额:</th>
+      <td id="monthPrice">0元</td>
+    </tr>
+  </table>
+</div>
+<div style="border-top:1px solid #C0C0C0; margin-top:20px;"></div>
+<div style="margin-top:20px; padding-top:0px;padding-left:5px; border-left:5px solid #C0C0C0;">统计图</div>
+<canvas id="myCanvas" width="700" height="340" style="margin-left:20px; margin-top:20px; padding:10px;"></canvas>
+<div style="border-top:1px solid #C0C0C0; margin-top:20px;"></div>
+<div style="margin-top:20px; padding-top:0px;padding-left:5px; border-left:5px solid #C0C0C0;">详细数据</div>
+<div style=" margin-top:10px; margin-bottom:50px;">
+  <table class="dataGrid" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="5%"><input type="checkbox" onChange="javascript:selectAll(this);"/></th>
+        <th width="20%">时间</th>
+        <th width="20%">当日订单数</th>
+        <th width="20%">当日总销售额</th>
+        <th width="20%">累计总销售额</th>
+      </tr>
+    </thead>
+    <tbody id="content"></tbody>
+  </table>
+</div>
+</fieldset>
+</body>
+</html>

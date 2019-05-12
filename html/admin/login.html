@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<title>管理平台</title>
+
+<link rel="stylesheet" type="text/css" href="css/login.css?v=20141215"/>
+<script type="text/javascript" src="js/md5.js?version=1.0"></script>
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/login.js?version=1.0"></script>
+</head>
+<body onLoad="javascript:init();">
+</div>
+<div id="header" >
+  <div align="center"> 
+  <a href="/" class="dib">微信订餐管理平台</a>
+  </div>
+</div>
+<div id="banner">
+	<h3>登录</h3>
+	<div class="login_err_msg"><span id="err_msg" ></span></div>
+	<form class="login_form" id="login_form">
+		<div class="login_un">
+			<img class="icon_login un" src="images/un.png"></img>
+			<input type="text" id="username" placeholder="管理平台账号"/>
+		</div>
+		<div class="login_pwd">
+			<img class="icon_login pwd" src="images/pw.png"></img>
+			<input type="password" id="password" placeholder="密码"/>
+		</div>
+	</form>
+	<div class="login_help_panel"> 
+		<span id="rememberPwd" class="login-remember-pwd" onClick="javascript:rememberPwd();">
+			<i id="rememberPwdIcon" class="icon_login checkbox"></i>
+			记住帐号
+		</span> 
+		<!--<a class="login-forget-pwd" href="">无法登录？</a> -->
+	</div>
+	<div class="login_btn_panel"> 
+		<a class="login_btn" title="点击登录" href="javascript:login();" id="login_button">登录</a> 
+	</div>
+</div>
+<div align="center" class="copyright">
+	<p>版权所有&nbsp;&copy;&nbsp;2014&nbsp;&nbsp;<a href="http://www.15tec.com/" target="_blank">深圳市十五科技有限公司</a> <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备14093313号-1</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<title>我的订单</title>
+<link rel="stylesheet" type="text/css" href="css/public.css?version=1.4" />
+<link rel="stylesheet" type="text/css" href="css/myorder.css?version=1.4" />
+<script src="js/public.js?version=1.4" charset="gb2312"></script>
+<script src="js/myorder.js?version=1.4" charset="gb2312"></script>
+</head>
+<body id="my_order" onLoad="javascript:init();">
+<div>
+  <div class="order_list">
+	<ul class="list_header"><li><span>配送信息</span></li></ul>
+	<ul class="list_content">
+		<li class="l4">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</li>
+		<li class="l5"><span><input id="name" name="name" placeholder="姓名" type="text"/></span></li>
+	</ul>
+	<ul class="list_content">
+		<li class="l4">联系电话</li>
+		<li class="l5"><span><input id="phone" name="phone" placeholder="手机号/座机号" type="text"/></span></li>
+	</ul>
+	<ul class="list_content">
+		<li class="l4">配送地址</li>
+		<li class="l5"><span><input id="address" name="address" placeholder="配送地址" type="text"/></span></li>
+	</ul>
+	<ul class="list_content">
+		<li class="l4">配送时间</li>
+		<li class="l5"><span>
+		<input id="deliveryTime" name="deliveryTime" placeholder="配送时间" type="text" value="立即配送"/>
+		<select id="deliveryTimeS" name="deliveryTimeS" onChange="javascript: deliveryTimeChange()" >
+          <option value="立即配送">立即配送</option>
+        </select>
+		</span></li>
+	</ul>
+	<ul class="list_content">
+		<li class="l4">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</li>
+		<li class="l5"><span><input id="remark" name="remark" placeholder="忌口/配送时间等" type="text"/></span></li>
+	</ul>
+  </div>
+  <div class="order_list" id="order_list">
+	<ul class="list_header">
+		<li>
+			<span>我的菜单</span>
+			<button class="btn_add emptyIt" id="clearBtn" onClick="javascript:clearOrderConfirm()">清空</button>
+			<button class="btn_add" onClick="javascript:backToMain()">+加菜</button>
+		</li>
+	</ul>
+	<!--<ul class="list_content" categoryName="">
+        <li class="l1">爽口萝卜皮</li> 
+		<li class="l2">16元/例</li>
+		<li class="l3">
+			<button class="minus"></button>
+			<i>1</i>
+			<button class="add"></button>
+		</li>
+	</ul>-->
+  </div>
+  <div class="footFix">
+  		<a class="back" onClick="javascript:backToMain();">返回</a>
+        <span>总共&nbsp;<em id="totalPrice">0</em>&nbsp;元</span>
+        <input type="hidden" id="totalPriceInput" value="0"/>
+        <button onClick="javascript:confirmSubmit()">提交订单</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<title>下单</title>
+<link rel="stylesheet" type="text/css" href="wei_shopwaimai_v2.1.9.css?v=1.0.10">
+<link rel="stylesheet" type="text/css" href="wei_dialog_v1.2.1.css?v=1.0.1" />
+<script src="http://imgcache.life.qq.com/www/misc/scripts/wei_webapp_v2_common_v1.9.4.js?v=1.0.5"></script>
+<script src="http://imgcache.life.qq.com/www/misc/scripts/wei_dialog_v2.2.3.js?v=1.0.0"></script>
+<style type="text/css">
+
+.mDialog>h3 {
+    color:#fff;
+}
+
+</style>
+</head>
+<body id="page_order">
+<div class="center">
+  <form action="" method="POST">
+    <section>
+      <article class="newAdd">
+        <fieldset>
+        <legend>
+        <h2>配送信息<i></i></h2>
+        </legend>
+        <input type="hidden" value="1280386273" id="uaKey"/>
+        <label>联系电话
+        <!--<input name="uaPhone" type="tel" placeholder="手机号/座机号"  required value="18611111111"/>-->
+        <span id="Ttel" class="fake_input addData">18611111111</span> </label>
+        <label>详细地址
+        <!--<input name="uaAdress" type="text" placeholder="城市/区/街道/楼名/楼层" required value="南山"/> -->
+        <span id="Taddr"  class="fake_input addData">南山</span> </label>
+        <label>配送日期&nbsp;
+        <select name="deliveryDate">
+          <option value="0">2014-09-09（今天）</option>
+        </select>
+        <span class="delivery_time_fake ph delivery_date_fake">2014-09-09（今天）</span></label>
+        <label>配送时间
+        <select name="deliveryTime" class="deliveryTime">
+          <option value="立即配送">立即配送</option>
+          <option value="17:30~18:00">17:30~18:00</option>
+        </select>
+        <select  class="deliveryAllTime" style="display:none">
+          <option value="08:30~09:00">08:30~09:00</option>
+          <option value="09:00~09:30">09:00~09:30</option>
+          <option value="09:30~10:00">09:30~10:00</option>
+          <option value="10:00~10:30">10:00~10:30</option>
+          <option value="10:30~11:00">10:30~11:00</option>
+          <option value="11:00~11:30">11:00~11:30</option>
+          <option value="11:30~12:00">11:30~12:00</option>
+          <option value="12:00~12:30">12:00~12:30</option>
+          <option value="12:30~13:00">12:30~13:00</option>
+          <option value="13:00~13:30">13:00~13:30</option>
+          <option value="13:30~14:00">13:30~14:00</option>
+          <option value="14:00~14:30">14:00~14:30</option>
+          <option value="14:30~15:00">14:30~15:00</option>
+          <option value="15:00~15:30">15:00~15:30</option>
+          <option value="15:30~16:00">15:30~16:00</option>
+          <option value="16:00~16:30">16:00~16:30</option>
+          <option value="16:30~17:00">16:30~17:00</option>
+          <option value="17:00~17:30">17:00~17:30</option>
+          <option value="17:30~18:00">17:30~18:00</option>
+        </select>
+        <select  class="deliveryTime2" style="display:none">
+          <option value="立即配送">立即配送</option>
+          <option value="17:30~18:00">17:30~18:00</option>
+        </select>
+        <span class="delivery_time_fake ph delivery_time_fake1">立即配送</span></label>
+        <label>备　　注
+        <!--<input name="extra" type="text" placeholder="忌口、发票抬头等"/> -->
+        <span id="Tmore"  class="fake_input">忌口、发票抬头等</span> </label>
+        </fieldset>
+      </article>
+      <article>
+        <dl>
+          <dt>
+            <h2>我的外卖</h2>
+          </dt>
+          <dd>
+            <ul class="myorder">
+              <li><span class="dishName">典膳坊老月饼订购价</span><i>80元/盒</i>
+                <div class="bbox" dishid="3917234254">
+                  <input class="btn-reduce" type="button" value="-" />
+                  <input class="numBox" name="dishNum0" type="text" value="8" price="80" disabled="disabled"/>
+                  <input class="btn-plus" type="button" value="+" />
+                </div>
+              </li>
+              <li><span class="dishName">苏之味订购价</span><i>142元/盒</i>
+                <div class="bbox" dishid="3874659378">
+                  <input class="btn-reduce" type="button" value="-" />
+                  <input class="numBox" name="dishNum0" type="text" value="7" price="142" disabled="disabled"/>
+                  <input class="btn-plus" type="button" value="+" />
+                </div>
+              </li>
+              <li><span class="dishName">忆江南订购价</span><i>71元/盒</i>
+                <div class="bbox" dishid="1834451231">
+                  <input class="btn-reduce" type="button" value="-" />
+                  <input class="numBox" name="dishNum0" type="text" value="13" price="71" disabled="disabled"/>
+                  <input class="btn-plus" type="button" value="+" />
+                </div>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </article>
+      <footer class="footFix footOrder" data-ffix-bottom="12" id="bottomInfo"> <a href="/weixin/dish/listDelivery?qrcode=q13884599648962&ticket=0096366e11f93d6b9d25377ec5af98ab&back=true#wechat_webview_type=1" class="back"><i>返回</i></a>
+        <!--<h1 id="totalPrice">0<span>元</span></h1> -->
+        <span class="back" id="payInfo"><em id="totalPrice">0</em>元
+        <input type="hidden" id="shippingprice" value="10"/>
+        <strong class="charges">含配送费10元</strong> </span>
+        <input type="submit" class="btnstyle1"  value="提交订单" />
+      </footer>
+    </section>
+  </form>
+</div>
+</body>
+</html>

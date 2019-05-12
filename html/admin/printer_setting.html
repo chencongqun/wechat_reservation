@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/printer_setting.js?version=1.0" charset="gb2312"></script>
+</head>
+<body onLoad="javascript:init()">
+<div>
+ <fieldset class="searchArea">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="120">启用云打印机:</th>
+      <td><input id="status" type="checkbox" style="width:20px; height:18px; border:0px; margin-left: 0px;">
+	  	<SPAN class="nowarning" id="spanStatusMsg"></SPAN></td>
+    </tr>
+	<tr>
+      <th width="120">打印方式:</th>
+      <td><select id="printType" >
+	  	<option value="0">订单审核通过时打印&nbsp;&nbsp;</option>
+	  	<option value="1">用户下单时立即打印&nbsp;&nbsp;</option>
+	  	</select></td>
+    </tr>
+    <tr>
+      <th width="120">打印机编号:</th>
+      <td><input id="machine_code" type="text" value="" size="30" maxlength="25" style="width:200px">
+	  	<SPAN class="nowarning" id="spanCodeMsg"></SPAN></td>
+    </tr>
+	<tr>
+      <th width="120">打印机密钥:</th>
+      <td><input id="machine_key" type="text" value="" size="30" maxlength="25" style="width:200px">
+	  	<SPAN class="nowarning" id="spanKeyMsg"></SPAN></td>
+    </tr>
+  </table>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />
+  </div>
+</div>
+</body>
+</html>

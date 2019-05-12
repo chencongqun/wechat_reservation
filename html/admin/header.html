@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>微信订餐管理平台</title>
+<link type="text/css" href="css/frameset.css?version=1.0" rel="stylesheet">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript">
+
+function changepassword()
+{
+	parent.main.location.href="change_password.html";
+}
+
+function logout()
+{
+	var url = "/admin/logout.php";
+	getJson(url, function login_response($result){parent.location.href="/admin/login.html";});
+}
+
+</script>
+</head>
+
+<body>
+<div id="header">
+	<a class="logo">微信订餐管理平台</a>
+	<span class="header_btn">
+		<a id="changePassword" href="javascript:changepassword();">修改密码</a>
+		<a id="logout" href="javascript:logout();">退出</a>
+	</span>
+</div>
+</body>
+</html>

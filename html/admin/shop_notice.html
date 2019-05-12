@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/auto_response.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/shop_information.js?version=1.0" charset="gb2312"></script>
+</head>
+
+<body onLoad="javascript:init(3);">
+<form id="form1" name="form1" action="/admin/systemSetting.php?opt=setSystemInfo" method="POST" enctype="multipart/form-data" target="uploadframe">
+<div class="text-div">
+  <h2>订餐须知</h2>
+  <span>(配送范围、外卖费以及其他一些注意事项)</span>
+  <textarea clos="300" rows="8" id="userNotice" name="userNotice" class="content"></textarea>
+</div>
+</form>
+<div align="center" style="margin-top:10px">
+  	<input type="button" value="保存配置" class="btn" onClick="javascript: submit_data(3);" style="width: 80px;"/>
+</div>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>十五科技账号管理系统</title>
+<link type="text/css" href="css/frameset.css?version=1.0" rel="stylesheet">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript">
+
+function logout()
+{
+	var url = "/console/logout.php";
+	getJson(url, function login_response($result){parent.location.href="/console/login.html";});
+}
+
+</script>
+</head>
+
+<body>
+<div id="header">
+	<a class="logo">十五科技账号管理系统</a>
+	<span class="header_btn">
+		<!--<a id="changePassword" href="javascript:changepassword();">修改密码</a>-->
+		<a id="logout" href="javascript:logout();">退出</a>
+	</span>
+</div>
+</body>
+</html>

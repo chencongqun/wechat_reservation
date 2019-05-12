@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>订餐电话</title>
+<style>
+.telephone
+{
+	font-size: 14px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	margin-left: -25px;
+	margin-right: 10px;
+	margin-top: 20px;
+	color:#000000;
+	list-style:none;
+}
+.telephone li
+{
+	border:1px solid #ccc;
+	height:40px;
+	background-color:#F0F0F0;
+	text-align:left;
+	vertical-align:middle;
+	line-height:40px;
+	padding-left: 20px;
+	margin-left:0px;
+}
+.telephone a
+{
+	text-decoration:none;
+	color:#000000;
+}
+</style>
+<script src="js/public.js?version=V1.4" charset="gb2312"></script>
+<script type="text/javascript">
+function init()
+{
+	var telephone = GetArgsFromHref(window.location.href, "telephone");
+	var shopinfo = GetArgsFromHref(window.location.href, "shopinfo");
+	if ( telephone != null )
+	{
+		$F("phone").innerHTML = '<a href="tel:' + telephone + '">' + telephone + '</a>';
+		var newUrl = "tel:"+telephone;
+		window.location.href = newUrl;
+	}
+	else if ( shopinfo != null )
+	{
+		var url = "/wechat/customer.php?opt=getSystemInfo&shopinfo="+shopinfo;
+		getJson( url, function handler(result){
+		
+			if ( ! "data" in result )
+				return;
+			var data = result["data"];
+			var telephone = data["phone"];
+			$F("phone").innerHTML = '<a href="tel:' + telephone + '">' + telephone + '</a>';
+			var newUrl = "tel:"+telephone;
+			window.location.href = newUrl;
+		
+		} );
+	
+	}
+}
+</script>
+</head>
+<body onLoad="javascript:init()">
+<div>
+    <ul class="telephone">
+        <li style="border-bottom:0px">订餐电话</li>
+        <li id="phone">0755-23625254</li>
+    </ul>
+</div>
+
+</body>
+</html>

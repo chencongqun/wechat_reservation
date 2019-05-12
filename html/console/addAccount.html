@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0" charset="gb2312"></script>
+<script type="text/javascript" src="js/addAccount.js?version=1.0" charset="gb2312"></script>
+</head>
+<body onLoad="javascript:init();">
+<form id="form1" name="form1" action="" method="POST" enctype="multipart/form-data" target="uploadframe">
+<input id="id" name="id" value="" style="display:none">
+<div>
+  <fieldset class="searchArea">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="80">商户名称:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="companyName" name="companyName" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanCompanyNameMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="80">备注:</th>
+      <td width="10" class="warning">&nbsp;</td>
+      <td><input id="remark" name="remark" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanRemarkMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="80">区域:</th>
+      <td width="10" class="warning">*</td>
+      <td><select id="city" name="city" >
+		<option value="sz">深圳</option>
+		</select>
+	  	<select id="district" name="district" >
+			<option value="ft">福田</option>
+			<option value="ns">南山</option>
+			<option value="lh">罗湖</option>
+			<option value="yt">盐田</option>
+			<option value="ba">宝安</option>
+			<option value="lg">龙岗</option>
+			<option value="lh">龙华</option>
+			<option value="ps">坪山</option>
+			<option value="gm">光明</option>
+			<option value="dp">大鹏</option>
+		</select>
+        <SPAN class="nowarning" id="spanCityMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="80">详细地址:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="address" name="address" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanAddressMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="80">账号类型:</th>
+      <td width="10" class="warning">*</td>
+      <td><select id="accountType" name="accountType" >
+		<option value="0">试用用户</option>
+		<option value="1">正式用户</option>
+		</select>
+        <SPAN class="nowarning" id="spanNameMsg"></SPAN> </td>
+    </tr>
+	<!--<tr>
+      <th width="80">充值短信数:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="smNum" name="smNum" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanSmNumMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="80">合同月数:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="tenancy" name="tenancy" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanTenancyMsg"></SPAN> </td>
+    </tr>-->
+	<tr id="account" style="display:none">
+      <th width="80">账号名称:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="accountName" disabled="accountName" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanAccountNameMsg"></SPAN> </td>
+    </tr>
+	<tr id="registerDate" style="display:none">
+      <th width="80">注册时间:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="registerDateStr" disabled="disabled" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanRegisterDateStrMsg"></SPAN> </td>
+    </tr>
+	<tr id="license" style="display:none">
+      <th width="80">有效期至:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="licenseDate" disabled="disabled" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanLicenseDateMsg"></SPAN> </td>
+    </tr>
+	<tr id="shortMessage" style="display:none">
+      <th width="80">剩余短信数:</th>
+      <td width="10" class="warning">*</td>
+      <td><input id="shortMessageNum" disabled="disabled" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanShortMessageNumMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="50">&nbsp;</th>
+      <td width="10">&nbsp;</td>
+      <td><SPAN class="nowarning" id="spanErrorMsg"></SPAN></td>
+    </tr>
+  </table>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />&nbsp;
+	<input type="button" value="重置" class="btn" onClick="javascript: reset_data();" />
+  </div>
+</div>
+</form>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

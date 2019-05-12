@@ -1,0 +1,198 @@
+body,article,section,h1,h2,hgroup,p,a,ul,ol,li,em,div,small,span,footer,canvas,figure,figcaption,input,dl,dt,dd {
+	margin:0;
+	padding:0;
+}
+body {
+	background-color:#f2f6f7;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-user-select:none;
+	font-family:"microsoft yahei";
+}
+
+body #myOrder {
+	overflow-x:hidden;
+}
+#myOrder .myOrderDl {
+	height:100%;
+	margin:0 10px;
+	padding:10px 12px;
+	border-left:2px #dedcdd solid;
+}
+#myOrder .myOrderDl dt.orderState {
+	position:relative;
+	height:24px;
+	line-height:24px;
+	font-size:12px;
+}
+#myOrder .myOrderDl dt.orderState i {
+	position:absolute;
+	right:0;
+	bottom:0;
+	font-style:normal;
+	font-size:12px;
+	font-family:"microsoft yahei";
+}
+#myOrder .myOrderDl dt.orderState i .nopay {
+	color:#1fb462;
+}
+#myOrder .myOrderDl dt.orderState i .pay {
+	color:#eb3533;
+}
+#myOrder .myOrderDl dt.orderState em {
+	position:absolute;
+	left:-18px;
+	top:5px;
+	width:9px;
+	height:9px;
+	border:1px #f1eff0 solid;
+	border-radius:5px;
+	background:#dedcdd;
+}
+#myOrder .myOrderDl dd.orderMenu {
+	position:relative;
+	margin-top:10px;
+	padding:8px;
+	border:1px #d4d5d7 solid;
+	border-radius:5px;
+	background:#fff;
+}
+#myOrder .btnstyle3 {
+	width:80px;
+	height:32px;
+}
+#myOrder .myOrderDl dd.orderMenu dl {
+	padding:0 5px 3px;
+	line-height:22px;
+	font-size:12px;
+}
+#myOrder .myOrderDl dd.orderMenu dl .fr {
+	float:right;
+}
+#myOrder .myOrderDl dd.orderMenu dl dt {
+	border-bottom:1px #e7e7e7 solid;
+	margin-bottom:5px;
+	padding-bottom:5px;
+}
+#myOrder .myOrderDl dd.orderMenu dl dd i {
+	padding-left:10px;
+	font-style:normal;
+	font-size:12px;
+	color:#444;
+}
+#myOrder .myOrderDl dd.orderMenu dl dd b {
+	display:inline-block;
+	width:112px;
+	font-weight:normal;
+	color:#444;
+	font-size:12px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+#myOrder .myOrderDl dd.orderMenu dl dd .danjia {
+	color:#465054;
+}
+#myOrder .topjiao {
+	position:absolute;
+	left:12px;
+	top:-9px;
+	width:11px;
+	height:9px;
+	background:url("../images/ddbg.png") no-repeat;
+	background-size:11px 9px;
+}
+#myOrder .sendnow {
+	font-weight:normal;
+}
+#myOrder .cancled {
+	color:#b2b2b2;
+}
+#myOrder .myOrderDl#cancled dd.orderMenu dl dd,#myOrder .myOrderDl#cancled dd.orderMenu dl dd .danjia,#myOrder .myOrderDl#cancled dd.orderMenu dl dt {
+	color:#a7a9a8;
+}
+#myOrder .myOrderDl#cancled dd.orderMenu dl dt .zongji {
+	color:#ff9393;
+}
+#myOrder .myOrderDl dd.orderMenu p {
+	position:relative;
+	margin:0 5px;
+	padding-left:65px;
+	font-size:12px;
+	line-height:22px;
+	color:#444;
+}
+.zongji {
+	float:right;
+	font-size:12px;
+}
+/*#myOrder .myOrderDl dd.orderMenu p label {
+	position:absolute;
+	left:0;
+	top:0;
+}*/
+#myOrder .myOrderDl dd.orderMenu p.note {
+	font-size:12px;
+}
+#myOrder .myOrderDl dd.orderMenu p.zongjia {
+	margin-bottom:5px;
+	padding-bottom:5px;
+	border-bottom:1px #e7e7e7 solid;
+}
+#myOrder .myOrderDl dd.orderMenu p label {
+	margin-left: -63px;
+	float:left;
+	width:80px;
+}
+#myOrder .myOrderDl dd.orderMenu div {
+	border-top:1px solid #e0e0e6;
+	text-align:center;
+}
+#myOrder .myOrderDl dd.orderMenu .submit {
+	margin:13px auto 5px;
+	display:inline-block;
+	text-align:center;
+	text-decoration:none;
+	vertical-align:middle;
+	cursor:pointer;
+	outline:0 none;
+	overflow:visible;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	width:78%;
+	height:42px;
+	line-height:42px;
+	font-size:20px;
+	font-weight:400;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:none;
+	color:#fff;
+	background-image:-webkit-gradient(linear,0% 0,0% 100%,from(#1cbb63),to(#1aaf5d));
+}
+
+.footFix {
+	width:100%;
+	text-align:center;
+	position:fixed;
+	left:0;
+	bottom:0;
+	z-index:99;
+	background-color:#FFFFFF;
+	vertical-align:center;
+	padding:15px 0px 5px 0px;
+}
+
+.footFix a
+{
+	float:left;
+	margin-left:10px;
+	font-style:normal;
+	font-size:15px;
+	font-family:"microsoft yahei";
+	text-decoration:none;
+	width: 20%;
+	border-right:1px solid #dbdbdd;
+	cursor:pointer;
+	height: 28px;
+}
+

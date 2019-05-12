@@ -1,0 +1,78 @@
+body
+{
+	margin:0;
+	padding:0;
+	background:#F2F2F2;
+}
+#sideNav
+{
+	float:left;
+	background:#F2F2F2;
+	list-style:none;
+	margin:0;
+	padding:0;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+#sideNav li
+{
+	width:180px;
+	height:50px;
+	color:#000000;
+	display:block;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	cursor:pointer;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #D2D2D2;
+	/*box-shadow:inset 0px 0px 40px 0px #ccccce;*/
+}
+#sideNav li:hover
+{
+	background:#E4E4E4;
+}
+#sideNav li.current
+{
+	font-weight:bold;
+	background-color: #E4E4E4;
+}
+#header
+{
+	height:88px;
+	margin:0px;
+	padding:0px;
+	background-color: #3399CC;
+}
+#header .logo
+{
+	float:left;
+	font-size:20px;
+	margin-left:20px;
+	line-height:88px;
+	height:88px;
+	overflow:hidden;
+	color:#FFF;
+	font-weight: bolder;
+	cursor: default;
+}
+#header .header_btn
+{
+	float:right;
+	height:88px;
+	line-height:88px;
+	overflow:hidden;
+	margin-right:10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+#header a
+{
+	text-decoration:none;
+}
+#logout, #changePassword
+{
+	color:#FFF;
+	margin-left:10px;
+	text-decoration:underline;
+}

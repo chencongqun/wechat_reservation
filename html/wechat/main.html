@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>全部菜品</title>
+<link rel="stylesheet" type="text/css" href="css/main.css?v=20141218" />
+<link rel="stylesheet" type="text/css" href="css/myorder.css?version=V1.4" />
+<link rel="stylesheet" type="text/css" href="css/public.css?version=V1.4" />
+<script src="js/public.js?version=V1.4" charset="gb2312"></script>
+<script src="js/main.js?version=20141212" charset="gb2312"></script>
+</head>
+<body id="menu_list" onLoad="init()">
+<div class="center">
+  <div id='directory'>
+    <dl id='directoryContent'></dl>
+  </div>
+  <div id="detail_section">
+  	<div id="subject_info"></div>
+  </div>
+  <div class="footFix">
+  		<a class="back" onClick="javascript:openAllOrderPage()">我的订单</a>
+        <span>总共&nbsp;<em id="totalPrice">0</em>&nbsp;元</span>
+        <input type="hidden" id="totalPriceInput" value="0"/>
+        <button onClick="javascript:openOrderPage()">我点好了</button>
+ </div>
+</div>
+</body>
+</html>

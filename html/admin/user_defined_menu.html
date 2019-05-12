@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="css/user_defined_menu.css?version=1.0">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/user_defined_menu.js?version=1.0"></script>
+</head>
+<body onLoad="javascript:init();">
+<fieldset class="searchArea">
+<legend align="center">菜单设置</legend>
+  <table cellSpacing="1px" cellPadding="0px">
+    <thead class="header">
+      <tr>
+        <th class="header_left"> <span>菜单列表</span>
+          <!--<button class="ui-btn" type="button">新建</button></th>-->
+        <th class="header_right">绑定菜单功能</th>
+      </tr>
+    </thead>
+    <tbody class="menu">
+      <tr id="item0">
+        <td><span class="before">|--</span>
+          <input id="name0" class="ui-input-small" type="text" placeholder="请输入菜单名称" value="外卖订餐">
+        </td>
+        <td>
+			<select id="type0" class="class_select" onChange="javascript:changeType(0);"><option value="default">套餐页面</option><option value="url">网页链接</option></select>
+			<select id="standardValue0" class="class_select"><option value="1">外卖订餐</option><option value="2">订餐须知</option><option value="3">餐厅介绍</option></select>
+			<input id="urlValue0" type="text" class="url-input" placeholder="请输入url" value="">
+			<!--<img  class="remove"  src="images/dellete.png">-->
+		 </td>
+      </tr>
+      <tr id="item1">
+        <td><span class="before">|--</span>
+          <input id="name1" class="ui-input-small" type="text" placeholder="请输入菜单名称" value="订餐须知">
+        </td>
+        <td>
+			<select id="type1" class="class_select" onChange="javascript:changeType(1);"><option value="default">套餐页面</option><option value="url">网页链接</option></select>
+			<select id="standardValue1" class="class_select" ><option value="2">订餐须知</option><option value="1">外卖订餐</option><option value="3">餐厅介绍</option>></select>
+			<input id="urlValue1" type="text" class="url-input" placeholder="请输入url" value="">
+			<!--<img  class="remove"  src="images/dellete.png">-->
+		</td>
+      </tr>
+      <tr id="item2">
+        <td><span class="before">|--</span>
+          <input id="name2" class="ui-input-small" type="text" placeholder="请输入菜单名称" value="餐厅介绍">
+        </td>
+        <td>
+			<select id="type2" class="class_select" onChange="javascript:changeType(2);"><option value="default">套餐页面</option><option value="url">网页链接</option></select>
+			<select id="standardValue2" class="class_select" ><option value="3">餐厅介绍</option><option value="1">外卖订餐</option><option value="2">订餐须知</option></select>
+			<input id="urlValue2" type="text" class="url-input" placeholder="请输入url" value="">
+			<!--<img  class="remove"  src="images/dellete.png">-->
+		</td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+<div class="text-div">
+  <h2>餐厅介绍</h2>
+  <span>(地址、联系方式、餐厅提供的菜系等等信息)</span>
+  <textarea clos="300" rows="8" id="shopInfo" name="shopInfo" class="content"></textarea>
+</div>
+<div class="text-div">
+  <h2>订餐须知</h2>
+  <span>(配送范围、外卖费以及其他一些注意事项)</span>
+  <textarea clos="300" rows="8" id="userNotice" name="userNotice" class="content"></textarea>
+</div>
+<table border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+    <tr>
+      <th width="550"></th>
+      <td><input type="button" value="保存配置" class="ui-btn" onClick="javascript: submit_data();" />
+	  </td>
+    </tr>
+</table>
+</body>
+</html>

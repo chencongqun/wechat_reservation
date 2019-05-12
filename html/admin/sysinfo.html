@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>微信餐厅管理平台</title>
+<link rel="stylesheet" type="text/css" href="css/info.css?version=1.0" />
+
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript">
+function init()
+{
+	var url = "/admin/systemInfo.php?opt=getSystemInfo";
+	getJson(url, function handler(result){
+								  	if ( checkExpired(result) )
+										return;
+								  	var data = result.data;
+									$F("registerDate").innerHTML = date2str(new Date(parseInt(data.registerDate)*1000),"yyyy-MM-dd");
+									var tenancy = parseInt(data.registerDate) + parseInt(data.tenancy) * 2630000;
+									tenancy = tenancy * 1000;
+									$F("licenseDate").innerHTML = date2str(new Date(tenancy),"yyyy-MM-dd");
+									$F("smNum").innerHTML = data.smNum;
+								  });
+	var url = "/admin/systemInfo.php?opt=getUnauthOrder";
+	getJson(url, function handler(result){
+								  	if ( checkExpired(result) )
+										return;
+								  	$F("unAuthOrderNum").innerHTML = result.count;
+								  });
+}
+
+
+</script>
+</head>
+<body onLoad="javascript:init()">
+<div class="main">
+<fieldset class="fieldsetStyle">
+  	<p><label>系统版本号: </label><b>V1.0</b></p>
+	<p><label>注册日期:  </label><b id="registerDate"></b></p>
+	<p><label>许可有效期: </label><b id="licenseDate"></b></p>
+	<p><label>剩余短信条数: </label><b id="smNum"></b></p>
+	<p><label>未处理订单数: </label><b id="unAuthOrderNum" style="color:#FF0000"></b></p>
+</fieldset>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>微信餐厅管理平台</title>
+<link type="text/css" href="css/frameset.css?version=1.0" rel="stylesheet">
+<script type="text/javascript">
+var curmenu = null;
+function menu_click(element)
+{
+	parent.main.location.href = element.getAttribute('href');
+	element.className = "current";
+	if ( curmenu != null )
+		curmenu.className = '';
+	curmenu = element;
+}
+</script>
+</head>
+<body>
+<ul id="sideNav">
+  <li onClick="javascript:menu_click(this);" href="accountManager.html?version=1.0">账号管理</li>
+  <!--<li onClick="javascript:menu_click(this);" href="dishes_frame.html?version=1.0">信息统计</li>-->
+</ul>
+</body>
+</html>

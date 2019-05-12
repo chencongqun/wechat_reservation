@@ -1,0 +1,22 @@
+.btn {
+	padding: 4px 12px;
+	background-color: #f8f8f8;
+	border: 1px solid #c3c3c3;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: #333;
+	width: 70px;
+	margin-left:10px;
+}
+
+.inputText
+{
+	border: 1px solid #c3c3c3;
+	height: 30px;
+	width: 100%;
+	margin-left: 10px;
+}

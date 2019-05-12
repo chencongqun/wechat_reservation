@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>十五科技账号管理系统</title>
+
+<link rel="stylesheet" type="text/css" href="css/login.css?version=1.0"/>
+<script type="text/javascript" src="js/md5.js?version=1.0"></script>
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/login.js?version=1.0"></script>
+</head>
+<body onLoad="javascript:init();">
+</div>
+<div id="header" >
+  <div align="center"> 
+  <a href="/" class="dib">十五科技账号管理系统</a>
+  </div>
+</div>
+<div id="banner">
+	<h3>登录</h3>
+	<div class="login_err_msg"><span id="err_msg" ></span></div>
+	<form class="login_form" id="login_form">
+		<div class="login_un">
+			<img class="icon_login un" src="images/un.png"></img>
+			<input type="text" id="username" placeholder="账号"/>
+		</div>
+		<div class="login_pwd">
+			<img class="icon_login pwd" src="images/pw.png"></img>
+			<input type="password" id="password" placeholder="密码"/>
+		</div>
+	</form>
+	<div class="login_help_panel"> 
+		<span id="rememberPwd" class="login-remember-pwd" onClick="javascript:rememberPwd();">
+			<i id="rememberPwdIcon" class="icon_login checkbox"></i>
+			记住帐号
+		</span>
+	</div>
+	<div class="login_btn_panel"> 
+		<a class="login_btn" title="点击登录" href="javascript:login();" id="login_button">登录</a> 
+	</div>
+</div>
+<div align="center" class="copyright">
+	<p>Copyright @ 2002-2014 15tec. All Rights Reserved.</p>
+</div>
+</body>
+</html>

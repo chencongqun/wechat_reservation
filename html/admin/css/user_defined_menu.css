@@ -1,0 +1,93 @@
+.ui-btn
+{
+	padding: 4px 12px;
+	background-color: #f8f8f8;
+	border: 1px solid #c3c3c3;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: #333;
+}
+.header
+{
+	//background-color: #F1F1F1;
+	height: 50px;
+	width: 600px;
+	margin: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;	
+	text-align: left;
+}
+.header tr
+{
+	height: 45px;
+}
+.header_left
+{
+	width: 200px;
+	padding-left:10px;
+	padding-right:10px;
+	line-height: 32px;
+}
+.header_left button
+{
+	float: right;
+}
+.header_right
+{
+	width: 400px;
+	margin-left:10px;
+	padding-left:10px;
+}
+.menu
+{
+	//background-color:#F8F8F8;
+	height:45px;
+}
+.menu tr
+{
+	height: 45px;
+}
+.ui-input-small
+{
+	border: 1px solid #c3c3c3;
+	height: 27px;
+}		
+.before
+{
+	margin-left: 10px;
+	color: #ccc;
+}
+.class_select
+{
+	padding: 4px 6px;
+	background-color: #f8f8f8;
+	border: 1px solid #c3c3c3;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: #333;
+	margin-left: 10px;
+}	  
+.remove
+{
+	float:right; 
+	width:15px; 
+	height:15px;
+	margin-top: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.url-input
+{
+	margin-left: 10px;
+	border: 1px solid #c3c3c3;
+	height: 27px;
+	width: 220px;
+}

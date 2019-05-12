@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/public.css?version=1.0" rel="stylesheet" type="text/css">
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0" charset="gb2312"></script>
+<script type="text/javascript" src="js/renewal.js?version=1.0" charset="gb2312"></script>
+</head>
+<body onLoad="javascript:init();">
+<form id="form1" name="form1" action="" method="POST" enctype="multipart/form-data" target="uploadframe">
+<input id="id" name="id" value="" style="display:none">
+<div>
+  <fieldset class="searchArea">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="120">充值短信数:</th>
+      <td width="10" class="nowarning">&nbsp;</td>
+      <td><input id="smNum" name="smNum" type="text" value="0" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanSmNumMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="120">充值合同月数:</th>
+      <td width="10" class="nowarning">&nbsp;</td>
+      <td><input id="tenancy" name="tenancy" type="text" value="0" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanTenancyMsg"></SPAN> </td>
+    </tr>
+	<tr>
+      <th width="50">&nbsp;</th>
+      <td width="10">&nbsp;</td>
+      <td><SPAN class="nowarning" id="spanErrorMsg"></SPAN></td>
+    </tr>
+  </table>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />&nbsp;
+	<input type="button" value="重置" class="btn" onClick="javascript: reset_data();" />
+  </div>
+</div>
+</form>
+<iframe onload="javascript:iframeOnload();" id="uploadframe" name="uploadframe" style="visibility:hidden;width:1px;height:1px;"></iframe>
+</body>
+</html>

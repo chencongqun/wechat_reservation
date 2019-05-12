@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/public_account.js?version=1.0"></script>
+</head>
+<body onLoad="javascript:init()">
+<div>
+ <fieldset class="searchArea">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="150">AppID(应用ID):</th>
+      <td><input id="account" type="text" value="" style="width:200px">
+        <SPAN class="nowarning" id="spanAccountMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="150">AppSecret(应用密钥):</th>
+      <td><input id="password" type="password" value="" style="width:200px">
+        <SPAN class="nowarning" id="spanPasswdMsg"></SPAN> </td>
+    </tr>
+  </table>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />
+  </div>
+</div>
+</body>
+</html>

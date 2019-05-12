@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>新增分类</title>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/dishes_category_add.js?version=1.0"></script>
+</head>
+<body onLoad="javascript:init();">
+<div>
+  <fieldset class="searchArea">
+  <legend align="center">新增分类</legend>
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="50">名称:</th>
+      <td width="10">&nbsp;</td>
+      <td><input id="name" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanNameMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="50">描述:</th>
+      <td width="10">&nbsp;</td>
+      <td><input id="desc" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanDescMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="50">排序:</th>
+      <td width="10">&nbsp;</td>
+      <td><input id="priority" type="text" value="" size="30" maxlength="25" style="width:100px">
+        <SPAN class="nowarning" id="spanPriorityMsg">（值越小在用户端菜单列表中的显示位置越靠前）</SPAN></td>
+    </tr>
+	<tr>
+      <th width="50">&nbsp;</th>
+      <td width="10">&nbsp;</td>
+      <td><SPAN class="nowarning" id="spanErrorMsg"></SPAN></td>
+    </tr>
+  </table>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />&nbsp;
+	<input type="button" value="重置" class="btn" onClick="javascript: reset_data();" />
+  </div>
+</div>
+</body>
+</html>

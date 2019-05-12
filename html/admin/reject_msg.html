@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/public.css?version=1.0" />
+<link rel="stylesheet" type="text/css" href="css/info.css?version=1.0" />
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+
+<style type="text/css">
+#msgList {width:100%;height:auto; background-color:#FFFFFF; display:none;}
+#msgList ul{margin:0;padding:0; list-style:none;}
+#msgList li{width:100%;height:auto; line-height:30px; border-bottom:1px dashed #ccc; color:#666; cursor:pointer;}
+</style>
+
+<script type="text/javascript">
+var id;
+var statusMsg = ["未审核","已接单","已拒绝"];
+function init()
+{
+	id = GetArgsFromHref(window.location.href, "id");
+}
+function showAndHide(type)
+{
+	if(type==1)
+		$F("msgList").style.display="block";
+	else
+		$F("msgList").style.display="none";
+}
+ 
+function selectMsg(obj)
+{
+	var selectObj = $F(obj);
+	var str = selectObj.innerHTML;
+	$F("rejectText").value = str;
+}
+
+function rejectOrderConfirm()
+{
+	var str = $F("rejectText").value;
+	var url = "/admin/customerOrder.php?opt=checkOrder&type=2&id=" + id + "&shopResponse=" + str;
+	getJson(url, function handler(result){
+								  	if ( checkExpired(result) )
+										return;
+									window.location.href = "/admin/order_list.html";
+								  });	
+}
+
+</script>
+
+</head>
+<body onLoad="javascript:init()">
+
+<div id="rejectMsg" style="margin-left:20px; margin-right:20px; margin-top:20px;">
+  <span style="margin-bottom:20px;">拒绝原因:</span>
+  <textarea style="border:1px solid #D5D5D5; min-height:60px; line-height:20px; font-size:15px; width:100%; " id="rejectText" onFocus="showAndHide(1);" onBlur="showAndHide(2);"></textarea>
+  <div id="msgList">
+    <ul>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onMouseDown="javascript:selectMsg('msg1')" id="msg1">您的联系方式不准确，暂时无法配送！给您带来不便，望您谅解！</li>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onMouseDown="javascript:selectMsg('msg2')" id="msg2">您的地址不在配送范围内，暂时无法配送！给您带来不便，望您谅解！</li>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onMouseDown="javascript:selectMsg('msg3')" id="msg3">您所选的菜品已经销售完，请选择其它菜品重新下单！给您带来不便，望您谅解！</li>
+      <li onMouseOver="this.style.background='#66CC99'" onMouseOut="this.style.background=''" onMouseDown="javascript:selectMsg('msg4')" id="msg4">该时段暂时无法配送，请您在餐厅的正常营业时间内下单！给您带来不便，望您谅解！</li>
+    </ul>
+  </div>
+  <input type="button" value="确定" class="btn" onClick="javascript: rejectOrderConfirm();" />
+</div>
+
+</body>
+</html>

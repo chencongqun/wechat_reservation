@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<link href="css/table.css?version=1.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/public.js?version=1.0"></script>
+<script type="text/javascript" src="js/sms_setting.js?version=1.0" charset="gb2312"></script>
+</head>
+<body onLoad="javascript:init()">
+<div>
+ <fieldset class="searchArea">
+  <table class="fieldBox" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="120">启用短信提醒:</th>
+      <td><input id="status" type="checkbox" style="width:20px; height:18px; border:0px; margin-left: 0px;"><SPAN class="nowarning" id="spanAccountMsg"></SPAN> </td>
+    </tr>
+    <tr>
+      <th width="120">手机号码:</th>
+      <td><input id="telephone" type="text" value="" size="30" maxlength="25" style="width:200px">
+        <SPAN class="nowarning" id="spanPhoneMsg">(有客户下单时，订单信息将会通过短信发送到该手机)</SPAN> </td>
+    </tr>
+  </table>
+  </fieldset>
+  <div align="center" style="margin-top:10px">
+  	<input type="button" value="确定" class="btn" onClick="javascript: submit_data();" />
+  </div>
+</div>
+</body>
+</html>
